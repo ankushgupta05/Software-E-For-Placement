@@ -183,6 +183,11 @@ Every day team meets, discusses tasks, improves work. Changes are allowed anytim
 
 
 
+💡 What is MDD?
+⭐ MDD = Model-Driven Development
+MDD is a software development approach where you focus on creating models first, and then generate code from these models.
+
+
 🔹 Software Example:
 
 > Developing a Zomato-type app where customer needs change frequently.
