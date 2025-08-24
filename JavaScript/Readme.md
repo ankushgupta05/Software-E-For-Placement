@@ -31,7 +31,7 @@ debugger; // Code execution will pause here if DevTools is open
 console.log("Sum is:", sum);
 
 
----
+```
 
 🔍 Explanation:
 
