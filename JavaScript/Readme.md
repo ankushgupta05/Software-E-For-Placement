@@ -284,9 +284,6 @@ Here’s Question 8 formatted in the same README.md style as your previous quest
 A **Higher-Order Function** is a function that **can take another function as an argument, return a function, or both**. It allows for more flexible, reusable, and functional programming patterns.
 
 ---
-
-### 🔹 Example:
-```javascript
 // Function passed as argument
 function greet(name) {
     return "Hello " + name;
