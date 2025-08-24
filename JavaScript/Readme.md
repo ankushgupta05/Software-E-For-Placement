@@ -192,3 +192,4 @@ If you want, I can **combine Questions 1–6 fully formatted** into a ready-to-u
   
 // syntex error acording nahi jam rahe
 
+i
