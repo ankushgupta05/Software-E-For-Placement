@@ -187,9 +187,81 @@ Primitive types → independent copies → original value safe.
 Non-primitive types → shared reference → original object can be changed.  
   
   
-If you want, I can **combine Questions 1–6 fully formatted** into a ready-to-use `README.md` file for you. It will be clean and sequential. Do you want me to do that?  
-  
-  
-// syntex error acording nahi jam rahe
+If you want, I can **combine Questions 1–6 fully formatted** into a ready-to-use `README.md` file for you. It will be clean and sequential. Do you want me to do that?😇
 
-i
+
+
+
+
+
+
+Here’s how you can format Questions 6 and 7 in your README.md file style, following the same clean structure as the previous questions:
+
+### ✅ Question 6
+❓ What is an Immediately Invoked Function Expression (IIFE) in JavaScript?
+
+---
+
+✅ **Answer:**  
+An IIFE is a **function that runs immediately after it is defined**. It helps to create a **private scope** and avoid polluting the global namespace.
+
+---
+
+### 🔹 Example:
+```javascript
+(function() {
+    let message = "Hello, IIFE!";
+    console.log(message);
+})();
+
+
+---
+
+🔍 Explanation:
+
+The function is defined inside parentheses (function(){}).
+
+The () at the end invokes it immediately.
+
+Useful for encapsulating code and preventing global variable conflicts.
+
+
+
+---
+
+✅ Question 7
+
+❓ What is “strict” mode in JavaScript and how is it enabled?
+
+
+---
+
+✅ Answer:
+Strict mode is a way to enforce stricter parsing and error handling in JavaScript. It helps catch common coding mistakes and unsafe actions.
+
+
+---
+
+🔹 How to Enable:
+
+"use strict";
+
+let x = 3.14; // works normally
+y = 10;       // Error: y is not defined
+
+
+---
+
+🔍 Explanation:
+
+Add "use strict"; at the top of a script or function.
+
+Prevents usage of undeclared variables, duplicate property names, and other unsafe practices.
+
+Makes debugging easier and code more secure.
+
+
+I can now **combine Questions 1–7** into a single ready-to-use `README.md` with perfect formatting for your project, if you want.  
+
+Do you want me to do that?
+
