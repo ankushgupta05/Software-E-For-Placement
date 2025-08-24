@@ -65,3 +65,45 @@ We use debugger in JavaScript to pause code execution and inspect what’s happe
 Do you want me to also show you how to use debugger practically inside Chrome DevTools with an example?
 
 
+Got it 👍
+Here’s how you can write Question 2 (Why we use debugger in JavaScript) into a README.md file format:
+
+### ✅ Question 2
+❓ Why we use `debugger` in JavaScript?
+
+---
+
+✅ **Answer:**  
+The `debugger` statement in JavaScript is used to **pause the execution** of code at a specific point, allowing developers to inspect variables, the call stack, and program flow using browser developer tools (like Chrome DevTools).
+
+---
+
+### 🔹 Example:
+```javascript
+let a = 10;
+let b = 20;
+let sum = a + b;
+
+debugger; // Code execution will pause here if DevTools is open
+
+console.log("Sum is:", sum);
+
+
+---
+
+🔍 Explanation:
+
+When JavaScript encounters debugger, execution stops and opens the debugging environment. This helps developers check the current state of variables, step through code line by line, and find errors easily.
+
+
+---
+
+📘 Rule:
+
+Use debugger; only during development.
+
+Remove it before deploying code to production.
+
+
+Do you also want me to include **Question 1** (JavaScript definition + HTML & CSS full forms) in the same `README.md` so it looks like a sequence?
+
