@@ -317,3 +317,37 @@ Functions can return other functions.
 
 Useful for creating reusable, composable, and functional code patterns.
 
+
+
+
+✅ Question 8
+❓ What are Higher-Order Functions (HOF) in JavaScript?
+
+---
+
+✅ **Answer:**  
+A **Higher-Order Function** is a function that **can take another function as an argument, return a function, or both**. HOFs enable **functional programming**, making code more reusable and composable.
+
+---
+
+// Function passed as argument
+function greet(name) {
+    return "Hello " + name;
+}
+
+function processUserInput(callback) {
+    let name = "John";
+    console.log(callback(name));
+}
+
+processUserInput(greet); // Output: Hello John
+
+// Function returned by another function
+function multiplier(factor) {
+    return function(x) {
+        return x * factor;
+    };
+}
+
+let double = multiplier(2);
+console.log(double(5)); // Output: 10
