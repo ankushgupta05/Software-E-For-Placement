@@ -32,14 +32,14 @@ debugger; // Code execution will pause here if DevTools is open
 console.log("Sum is:", sum);
 
 
-```
+
 
 🔍 Explanation:
 
 When JavaScript encounters debugger, execution stops and opens the debugging environment. This helps developers check the current state of variables, step through code line by line, and find errors easily.
 
 
----
+
 
 📘 Rule:
 
