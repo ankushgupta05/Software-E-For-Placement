@@ -271,3 +271,52 @@ This keeps the **exact structure, headings, code blocks, and explanations** cons
 
 If you want, I can now **combine Questions 1–7 into a single full `README.md`** ready to use.
 
+
+
+Here’s Question 8 formatted in the same README.md style as your previous questions:
+
+### ✅ Question 8
+❓ What are Higher-Order Functions in JavaScript?
+
+---
+
+✅ **Answer:**  
+A **Higher-Order Function** is a function that **can take another function as an argument, return a function, or both**. It allows for more flexible, reusable, and functional programming patterns.
+
+---
+
+### 🔹 Example:
+```javascript
+// Function passed as argument
+function greet(name) {
+    return "Hello " + name;
+}
+
+function processUserInput(callback) {
+    let name = "John";
+    console.log(callback(name));
+}
+
+processUserInput(greet); // Output: Hello John
+
+// Function returned by another function
+function multiplier(factor) {
+    return function(x) {
+        return x * factor;
+    };
+}
+
+let double = multiplier(2);
+console.log(double(5)); // Output: 10
+
+
+---
+
+🔍 Explanation:
+
+Functions can be passed as arguments to other functions.
+
+Functions can return other functions.
+
+Useful for creating reusable, composable, and functional code patterns.
+
