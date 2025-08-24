@@ -21,7 +21,8 @@ The `debugger` statement in JavaScript is used to **pause the execution** of cod
 ---
 
 ### 🔹 Example:
-```javascript
+```
+javascript
 let a = 10;
 let b = 20;
 let sum = a + b;
