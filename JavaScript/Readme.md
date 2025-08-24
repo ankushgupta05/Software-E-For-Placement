@@ -20,7 +20,7 @@ The `debugger` statement in JavaScript is used to **pause the execution** of cod
 
 ---
 
-### 🔹 Example:
+###  Example:
 
 javascript
 let a = 10;
