@@ -205,7 +205,7 @@ Here’s how you can format Questions 6 and 7 in your README.md file style, foll
 
 Got it! Here’s Questions 6 and 7 formatted cleanly for README.md exactly as you want:
 
-### ✅ Question 6
+✅ Question 6
 ❓ What is an Immediately Invoked Function Expression (IIFE) in JavaScript?
 
 ---
@@ -215,8 +215,6 @@ An IIFE is a **function that runs immediately after it is defined**. It helps to
 
 ---
 
-### 🔹 Example:
-```javascript
 (function() {
     let message = "Hello, IIFE!";
     console.log(message);
