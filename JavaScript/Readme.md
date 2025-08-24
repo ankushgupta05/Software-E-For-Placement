@@ -351,3 +351,147 @@ function multiplier(factor) {
 
 let double = multiplier(2);
 console.log(double(5)); // Output: 10
+
+
+
+
+
+Got it! I’ll simplify Questions 9–12 so they are easy to read, short, and exam-friendly, keeping the same format.
+
+### ✅ Question 9
+❓ What is the purpose of the `this` keyword in JavaScript?
+
+---
+
+✅ **Answer:**  
+`this` refers to **the object that is running the current function**. Its value depends on how the function is called.
+
+---
+
+ Example:
+javascript
+const person = {
+    name: "Alice",
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+person.greet(); // Hello, Alice
+
+
+---
+
+🔍 Explanation:
+
+In object methods, this = object.
+
+In regular functions, this = global object (undefined in strict mode).
+
+
+
+---
+
+✅ Question 10
+
+❓ What is the scope of a variable in JavaScript?
+
+
+---
+
+✅ Answer:
+Scope decides where a variable can be used.
+
+Global Scope: accessible anywhere.
+
+Function Scope: accessible inside a function.
+
+Block Scope: accessible inside {} when using let or const.
+
+
+
+---
+ Example:
+
+let globalVar = "Global";
+
+function test() {
+    let localVar = "Function";
+    if(true){
+        let blockVar = "Block";
+        console.log(blockVar); // Block
+    }
+}
+
+
+---
+
+✅ Question 11
+
+❓ What are Closures in JavaScript?
+
+
+---
+
+✅ Answer:
+A closure is a function that remembers variables from its outer function, even after the outer function ends.
+
+
+---
+Example:
+
+function outer() {
+    let count = 0;
+    return function() {
+        count++;
+        console.log(count);
+    };
+}
+
+const increment = outer();
+increment(); // 1
+increment(); // 2
+
+
+---
+
+🔍 Explanation:
+
+Closures help keep data private and remember values.
+
+
+---
+
+✅ Question 12
+
+❓ What is a Callback Function in JavaScript?
+
+
+---
+
+✅ Answer:
+A callback function is a function passed to another function and called later.
+
+
+---
+
+Example:
+
+function greet(name, callback) {
+    console.log("Hello " + name);
+    callback();
+}
+
+greet("Alice", function() {
+    console.log("Goodbye!");
+});
+
+
+---
+
+🔍 Explanation:
+
+Useful for async tasks like API calls or events.
+
+Helps functions run in a specific order.
+
+
