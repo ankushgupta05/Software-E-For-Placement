@@ -26,18 +26,6 @@ try {
 }
 
 
----
-
-37. Explain the Concept of Event Bubbling in JavaScript.
-
-Event Bubbling means when an event happens on a child element, it moves upward (bubbles) through its parent elements.
-
-The event is first handled by the target element, then by its parent, then by the ancestor elements, up to the root.
-
-
-👉 Example:
-Clicking a button inside a <div> will first trigger the button’s click, then the <div>’s click, and so on.
-
 
 ---
 
@@ -86,4 +74,80 @@ setTimeout(function() {
 ---
 
 Do you want me to also cover setInterval() vs setTimeout() (since they are often asked together)?
+
+
+Got it 👍 Let’s explain Event Bubbling in easy technical English:
+
+
+---
+
+🔹 What is Event Bubbling?
+
+When you click (or trigger an event) on a child element, the event does not stop there.
+
+It moves upward to the parent, then grandparent, then all the way up to the document.
+
+This upward flow is called event bubbling.
+
+
+👉 Flow = Child → Parent → Grandparent → Document
+
+
+---
+
+🔹 Example
+
+<div id="parent">
+  <button id="child">Click Me</button>
+</div>
+
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+👉 If you click the button:
+
+First → "Child clicked"
+
+Then → "Parent clicked"
+
+
+Because the event bubbled from child to parent.
+
+
+---
+
+🔹 How to Stop It?
+
+1. event.stopPropagation()
+
+Stops the event from going to parent.
+
+document.getElementById("child").addEventListener("click", (event) => {
+  console.log("Child clicked");
+  event.stopPropagation(); // ✅ stops bubbling
+});
+
+Now only "Child clicked" will show.
+
+
+---
+
+🔹 Simple Summary
+
+Event Bubbling = Event moves upward (child → parent).
+
+Problem = Sometimes parent event runs by mistake.
+
+Solution = Use stopPropagation() to stop it.
+
+
+
+---
+
+Do you want me to also explain the opposite (Event Capturing: parent → child) in the same simple way?
 
