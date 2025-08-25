@@ -318,3 +318,93 @@ console.log(ws.has(obj)); // true
 
 
 
+Perfect 👍 I’ll give you complete but very simple definitions for both questions (34 & 35).
+
+
+---
+
+34. Purpose of async and await in JavaScript
+
+async keyword:
+
+Used before a function.
+
+It makes the function always return a Promise.
+
+
+await keyword:
+
+Used inside an async function.
+
+It tells JavaScript to wait until the Promise finishes before going to the next line.
+
+
+
+✅ Example:
+
+async function example() {
+  let promise = new Promise((resolve) => {
+    setTimeout(() => resolve("Done!"), 2000);
+  });
+
+  let result = await promise; // waits 2 seconds
+  console.log(result); // Done!
+}
+example();
+
+👉 Simple meaning: async/await is used to write asynchronous code in a way that looks simple, like normal step-by-step code.
+
+
+---
+
+35. Difference Between Function Declaration and Function Expression
+
+Function Declaration
+
+A function created with the function keyword and a name.
+
+It is hoisted, meaning you can call it before it is written in the code.
+
+
+✅ Example:
+
+greet(); // works
+
+function greet() {
+  console.log("Hello from Declaration!");
+}
+
+
+---
+
+Function Expression
+
+A function assigned to a variable (can be anonymous or named).
+
+It is not hoisted, so you can only call it after it is defined.
+
+
+✅ Example:
+
+// greet(); ❌ Error: Cannot access before initialization
+
+const greet = function() {
+  console.log("Hello from Expression!");
+};
+greet(); // works
+
+
+---
+
+👉 Simple meaning:
+
+Declaration = defined with a name, can be used before it appears in code.
+
+Expression = stored in a variable, can only be used after it is defined.
+
+
+
+---
+
+Do you want me to also give you these two in a small easy comparison table (like side-by-side)?
+
