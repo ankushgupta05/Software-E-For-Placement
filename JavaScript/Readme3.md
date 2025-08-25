@@ -533,5 +533,147 @@ document.querySelectorAll("div");
 
 ---
 
-⚡ Do you want me to continue next with 54, 55, 56, … in this same easy format so you’ll have the full list ready for revision?
+Okay 👍 Got it!
+So for Question 55 (window object) the first answer I gave you was better ✅.
+
+Here it is again in the same simple style 👇
+
+
+---
+
+55. What Is the Purpose of the window Object in JavaScript?
+
+In a browser, window is the global object.
+
+Everything in JavaScript (like alert(), setTimeout(), document) comes under window.
+
+It represents the browser window where the page is shown.
+
+
+🔹 Example:
+
+console.log(window.innerWidth);   // width of the browser window
+console.log(window.innerHeight);  // height of the browser window
+
+window.alert("Hello from window!"); // alert box
+
+👉 Even if you write alert("hi"), it’s actually window.alert("hi").
+
+✅ Purpose:
+
+Acts as a global scope for variables & functions.
+
+Provides properties/methods to control the browser window.
+
+Holds the document object (DOM).
+
+
+
+---
+
+Would you like me to also shorten 54 and 56 in the same simple style like this one?
+
+
+
+
+
+Perfect 👍 I’ll rewrite 54 and 56 in the same simple style as 55 (the one you liked).
+
+
+---
+
+54. What Are the Different Ways to Create Objects in JavaScript?
+
+In JavaScript, objects are used to store data in key–value pairs.
+There are 5 common ways to create objects:
+
+1. Object Literal (most common):
+
+
+
+let person = { name: "Ankush", age: 22 };
+
+2. Using new Object():
+
+
+
+let car = new Object();
+car.brand = "Tata";
+
+3. Using Constructor Function:
+
+
+
+function Student(name) {
+  this.name = name;
+}
+let s1 = new Student("Ankush");
+
+4. Using ES6 Class:
+
+
+
+class Animal {
+  constructor(type) {
+    this.type = type;
+  }
+}
+let dog = new Animal("Dog");
+
+5. Using Object.create():
+
+
+
+let parent = { greet: () => "Hello" };
+let child = Object.create(parent);
+
+✅ In short: Objects can be created using Literal, new Object(), Constructor, Class, or Object.create().
+
+
+---
+
+56. What Is Callback Hell?
+
+A callback is a function passed to another function to run later.
+
+Callback Hell happens when too many callbacks are nested, making the code look messy and hard to read.
+
+
+🔹 Example of Callback Hell:
+
+setTimeout(() => {
+  console.log("1");
+  setTimeout(() => {
+    console.log("2");
+    setTimeout(() => {
+      console.log("3");
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+😵 This looks confusing → called "Pyramid of Doom".
+
+✅ Solution: Use Promises or async/await.
+
+🔹 With async/await (clean way):
+
+async function steps() {
+  console.log("1");
+  await new Promise(r => setTimeout(r, 1000));
+  console.log("2");
+  await new Promise(r => setTimeout(r, 1000));
+  console.log("3");
+}
+steps();
+
+✅ In short:
+Callback Hell = too many nested callbacks.
+Solution = use Promises or async/await for clean code.
+
+
+---
+
+Do you want me to now put 54, 55, 56 together in one neat block (like notes for revision)?
+
+
 
