@@ -93,3 +93,88 @@ console.log(5 === "5"); // false (type different: number vs string)
 
 Do you want me to also extend this list with 17, 18, 19 in the same easy and short style?
 
+
+
+
+
+
+Got it 👍 I’ll write your given questions as 20, 21, 22 in the same easy style we used earlier.
+
+
+---
+
+20. What Is the Difference Between null and undefined?
+
+null → an empty value (set by the programmer). It means "nothing".
+
+undefined → means a variable has been declared but not given any value.
+
+
+👉 Example:
+
+let a;
+console.log(a);     // undefined (no value given)
+
+let b = null;
+console.log(b);     // null (empty value)
+
+
+---
+
+21. What Is Event Delegation in JavaScript and Why Is It Useful?
+
+Event Delegation means attaching a single event listener to a parent element instead of adding listeners to each child element.
+
+It is useful because:
+
+1. Saves memory (less event listeners).
+
+
+2. Works even for dynamically added elements.
+
+
+
+
+👉 Example:
+
+document.getElementById("list").addEventListener("click", function(e) {
+  if (e.target.tagName === "LI") {
+    console.log("You clicked: " + e.target.innerText);
+  }
+});
+
+Here, instead of giving click event to each <li>, we gave it once to <ul>.
+
+
+---
+
+22. Explain the Concept of Prototypes in JavaScript.
+
+Every object in JavaScript has a prototype.
+
+Prototype is like a hidden object from which other objects inherit properties and methods.
+
+It helps in reusing methods without copying them.
+
+
+👉 Example:
+
+function Person(name) {
+  this.name = name;
+}
+
+// add method to prototype
+Person.prototype.sayHello = function() {
+  console.log("Hello, I am " + this.name);
+};
+
+let p1 = new Person("Alice");
+p1.sayHello(); // Hello, I am Alice
+
+Here, sayHello() is not inside the object directly, it comes from the prototype.
+
+
+---
+
+👉 Do you want me to continue with 23, 24, 25 (your 25 is missing) and 27 in the same simple style?
+
