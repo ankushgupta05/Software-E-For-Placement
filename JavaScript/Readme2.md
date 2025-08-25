@@ -406,5 +406,54 @@ Expression = stored in a variable, can only be used after it is defined.
 
 ---
 
-Do you want me to also give you these two in a small easy comparison table (like side-by-side)?
+
+
+---
+
+1. Synchronous
+
+Tasks run one after another (step by step).
+
+The next task starts only after the previous one is finished.
+
+It is blocking (you must wait).
+
+
+👉 Example:
+At an ATM machine:
+
+Insert card
+
+Enter PIN
+
+Withdraw money
+Each step happens in order, one by one.
+
+
+
+---
+
+2. Asynchronous
+
+Tasks can run independently or in the background.
+
+You don’t need to wait for one task to finish before starting another.
+
+It is non-blocking.
+
+
+👉 Example:
+While shopping online:
+
+You place an order (this happens in the background).
+
+At the same time, you can continue browsing other products.
+
+You don’t have to wait for the first order to complete.
+
+
+
+---
+
+
 
