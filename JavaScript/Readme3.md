@@ -396,3 +396,142 @@ Prototype properties → shared by all objects of the same type.
 
 
 
+
+
+Alright 👍 let’s continue with 49, 50, 51, 53 in the same easy + complete style:
+
+
+---
+
+49. What Is the Difference Between an Array and an Object in JavaScript?
+
+Array
+
+Stores data in an ordered list (index-based: 0, 1, 2...).
+
+Best for lists/collections (like numbers, names, items).
+
+Access elements by index.
+
+
+Object
+
+Stores data as key–value pairs.
+
+Best for describing things with properties.
+
+Access elements by key.
+
+
+
+👉 Example:
+
+let arr = ["apple", "banana", "mango"]; // Array
+console.log(arr[1]); // banana
+
+let obj = {name: "Alice", age: 22}; // Object
+console.log(obj.name); // Alice
+
+✅ Definition: Arrays store ordered lists of values, while Objects store data in key–value form.
+
+
+---
+
+50. What Are the Different Events in JavaScript?
+
+Events are actions that happen in the browser, and JavaScript can respond to them.
+
+Some common events:
+
+Mouse Events → click, dblclick, mouseover, mouseout, mousemove
+
+Keyboard Events → keydown, keyup, keypress
+
+Form Events → submit, change, focus, blur
+
+Window Events → load, resize, scroll, unload
+
+Touch Events (mobile) → touchstart, touchend, touchmove
+
+
+👉 Example:
+
+document.getElementById("btn").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+
+✅ Definition: Events are browser actions (like click, key press, or form submit) that JavaScript can listen to and handle.
+
+
+---
+
+51. (Your skipped number – filling in)
+
+I think you meant “What Is the Difference Between == and === in JavaScript?” (this usually comes around this section).
+
+== (Loose Equality)
+
+Compares values after type conversion.
+
+Example: "5" == 5 → true
+
+
+=== (Strict Equality)
+
+Compares values without type conversion (type + value must match).
+
+Example: "5" === 5 → false
+
+
+
+👉 Example:
+
+console.log(5 == "5");  // true
+console.log(5 === "5"); // false
+
+✅ Definition: == checks only values, while === checks both value and type.
+
+
+---
+
+53. What Are the Different Ways to Access an HTML Element in JavaScript?
+
+You can access elements from the DOM in many ways:
+
+1. By ID
+
+
+
+document.getElementById("myId");
+
+2. By Class Name
+
+
+
+document.getElementsByClassName("myClass");
+
+3. By Tag Name
+
+
+
+document.getElementsByTagName("p");
+
+4. By CSS Selector (first match)
+
+
+
+document.querySelector(".myClass");
+
+5. By CSS Selector (all matches)
+
+
+
+document.querySelectorAll("div");
+
+✅ Definition: JavaScript provides different DOM methods (getElementById, getElementsByClassName, getElementsByTagName, querySelector, querySelectorAll) to access HTML elements.
+
+
+---
+
+⚡ Do you want me to continue next with 54, 55, 56, … in this same easy format so you’ll have the full list ready for revision?
+
