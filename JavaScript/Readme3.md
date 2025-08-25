@@ -262,3 +262,137 @@ console.log(doubled); // [2, 4, 6]
 ---
 
 
+
+
+Perfect 👍 Let’s continue with 45, 46, 47, 48 in the same easy + complete definition style:
+
+
+---
+
+45. What Is the Difference Between splice() and slice()?
+
+Both are array methods, but they are very different:
+
+slice(start, end)
+
+Returns a new array from part of the original array.
+
+Does not change the original array.
+
+
+splice(start, deleteCount, items...)
+
+Can add or remove elements from the array.
+
+Changes the original array.
+
+
+
+👉 Example:
+
+let arr = [1, 2, 3, 4, 5];
+
+let sliced = arr.slice(1, 4);  // [2, 3, 4] (original not changed)
+let spliced = arr.splice(2, 2); // removes [3, 4] (original changed)
+
+console.log(arr); // [1, 2, 5]
+
+✅ Definition: slice() makes a copy of part of an array, while splice() adds/removes elements and changes the original array.
+
+
+---
+
+46. What Is the Purpose of the reduce() Function in JavaScript?
+
+reduce() is an array method.
+
+It is used to reduce the whole array to a single value.
+
+It takes a callback function and a starting value.
+
+
+👉 Example: Sum of numbers:
+
+let numbers = [1, 2, 3, 4];
+let sum = numbers.reduce((acc, curr) => acc + curr, 0);
+
+console.log(sum); // 10
+
+👉 Example: Multiply numbers:
+
+let product = numbers.reduce((acc, curr) => acc * curr, 1);
+console.log(product); // 24
+
+✅ Definition: reduce() applies a function to each element of the array and reduces it to a single result (like sum, product, etc.).
+
+
+---
+
+47. How Can You Check if an Array Includes a Certain Value in JavaScript?
+
+You can use the includes() method.
+
+Returns true if the value exists in the array.
+
+Returns false if not found.
+
+
+👉 Example:
+
+let fruits = ["apple", "banana", "mango"];
+
+console.log(fruits.includes("banana")); // true
+console.log(fruits.includes("orange")); // false
+
+✅ Definition: includes() checks whether an array contains a specific value and returns true or false.
+
+
+---
+
+48. What Is the Difference Between Prototype and Instance Properties in JavaScript?
+
+Prototype Properties
+
+Belong to the prototype object of a class or constructor.
+
+Shared by all objects created from that constructor.
+
+Saves memory (only one copy is shared).
+
+
+Instance Properties
+
+Defined inside the constructor (using this).
+
+Each object gets its own copy.
+
+
+
+👉 Example:
+
+function Person(name) {
+  this.name = name;   // instance property
+}
+
+Person.prototype.sayHello = function() {
+  console.log("Hello, I am " + this.name); // prototype property
+};
+
+let p1 = new Person("Alice");
+let p2 = new Person("Bob");
+
+p1.sayHello(); // Hello, I am Alice
+p2.sayHello(); // Hello, I am Bob
+
+✅ Definition:
+
+Instance properties → belong to each object separately.
+
+Prototype properties → shared by all objects of the same type.
+
+
+
+---
+
+
+
