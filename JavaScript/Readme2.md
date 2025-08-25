@@ -178,3 +178,143 @@ Here, sayHello() is not inside the object directly, it comes from the prototype.
 
 👉 Do you want me to continue with 23, 24, 25 (your 25 is missing) and 27 in the same simple style?
 
+
+
+
+Got it 👍 I’ll keep them very simple but add a little more explanation so you can explain clearly in interviews.
+
+
+---
+
+23. How Can You Clone an Object in JavaScript?
+
+Cloning means making a copy of an object.
+
+If we change the copy, the original should not change.
+
+Ways:
+
+Shallow copy (copies only top level):
+
+let obj = {a: 1, b: 2};
+let clone1 = {...obj};               
+let clone2 = Object.assign({}, obj);
+
+Deep copy (copies nested objects also):
+
+let deep = JSON.parse(JSON.stringify(obj));
+
+
+
+
+---
+
+24. What Are Arrow Functions in JavaScript?
+
+Arrow functions are a short form of functions.
+
+They make code smaller and easier to read.
+
+They do not have their own this, they use the parent this.
+
+
+👉 Example:
+
+let add = (a, b) => a + b;
+console.log(add(2,3)); // 5
+
+
+---
+
+25. Difference Between let, const, and var
+
+var → Old way, function-scoped, can re-declare and change.
+
+let → New way, block-scoped, can change value but not re-declare in same block.
+
+const → Block-scoped, value cannot change (constant).
+
+
+👉 Example:
+
+var x = 10;  // old, function scope
+let y = 20;  // block scope, can update
+const z = 30; // block scope, cannot update
+
+
+---
+
+26. What Are Promises in JavaScript?
+
+Promise is used to handle asynchronous work (something that takes time like API calls).
+
+It has 3 states:
+
+1. pending → work not finished yet.
+
+
+2. resolved → work finished successfully.
+
+
+3. rejected → work failed.
+
+
+
+
+👉 Example:
+
+let promise = new Promise((resolve, reject) => {
+  resolve("Success!");
+});
+
+promise.then(res => console.log(res)); // Success!
+
+
+---
+
+27. What Is a Generator Function?
+
+A special function that can pause with yield and resume later.
+
+Declared with function*.
+
+Useful for working step by step.
+
+
+👉 Example:
+
+function* numbers() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+let gen = numbers();
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+
+
+---
+
+28. WeakMap and WeakSet in JavaScript
+
+WeakMap → Like Map, but keys must be objects. Values are garbage collected if object is not used anywhere else.
+
+WeakSet → Like Set, but it only stores objects (not strings or numbers).
+
+
+👉 Example:
+
+let wm = new WeakMap();
+let obj = {};
+wm.set(obj, "data");
+console.log(wm.get(obj)); // data
+
+let ws = new WeakSet();
+ws.add(obj);
+console.log(ws.has(obj)); // true
+
+
+---
+
+
+
