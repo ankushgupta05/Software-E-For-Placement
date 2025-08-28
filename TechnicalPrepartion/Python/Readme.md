@@ -1111,3 +1111,139 @@ MyClass.static_method() # Static method, no class or instance access
 ---
 
 
+
+Perfect 🙂 Let’s do **Q46–Q50** with **simple definitions, easy explanations, and daily-life examples** so they are interview-friendly.
+
+---
+
+### **46. What is `__init__()` in Python and how does `self` play a role in it?**
+
+✅ **Answer:**
+
+* `__init__()` is a **special method in Python classes** called the **constructor**. It is automatically called when a new object is created.
+* `self` represents the **instance of the class**. It allows each object to have its **own attributes**.
+
+🔍 **Easy Explanation with Daily-Life Example:**
+
+* Think of a **blueprint of a car** (class). When you make a new car (object), `__init__()` **sets its color, model, and engine**.
+* `self` is like **this particular car**, so each car can have **different attributes**.
+
+```python
+class Car:
+    def __init__(self, color, model):
+        self.color = color
+        self.model = model
+
+my_car = Car("Red", "Toyota")
+your_car = Car("Blue", "Honda")
+
+print(my_car.color)  # Red
+print(your_car.model) # Honda
+```
+
+---
+
+### **47. Write a code to display the current time**
+
+✅ **Answer:**
+You can use the **`datetime` module** to display current date and time.
+
+```python
+from datetime import datetime
+
+current_time = datetime.now()
+print("Current Date & Time:", current_time)
+```
+
+**Daily-Life Example:**
+
+* Like checking your **phone clock** to see what time it is.
+
+---
+
+### **48. What are Access Specifiers in Python?**
+
+✅ **Answer:**
+Access specifiers define **how variables and methods of a class can be accessed**. Python has **three types**:
+
+| Type      | Symbol        | Access Level            | Example |
+| --------- | ------------- | ----------------------- | ------- |
+| Public    | no underscore | Can access anywhere     | `x`     |
+| Protected | *single*      | Only class & subclasses | `_x`    |
+| Private   | **double**    | Only inside class       | `__x`   |
+
+**Daily-Life Example:**
+
+* **Public:** Your **name** on social media (everyone can see)
+* **Protected:** Your **email** shared with friends (limited access)
+* **Private:** Your **bank PIN** (only you can access)
+
+```python
+class Person:
+    public_name = "Alice"
+    _protected_email = "alice@example.com"
+    __private_pin = 1234
+```
+
+---
+
+### **49. What are Unit Tests in Python?**
+
+✅ **Answer:**
+Unit tests are **small tests written to check individual parts of a program** (like functions or methods) to ensure they work correctly.
+
+**Daily-Life Example:**
+
+* Like **checking each ingredient separately** before cooking a recipe.
+
+**Example using `unittest` module:**
+
+```python
+import unittest
+
+def add(a, b):
+    return a + b
+
+class TestMath(unittest.TestCase):
+    def test_add(self):
+        self.assertEqual(add(2, 3), 5)
+
+if __name__ == "__main__":
+    unittest.main()
+```
+
+---
+
+### **50. Python Global Interpreter Lock (GIL)**
+
+✅ **Answer:**
+
+* GIL is a **mutex (lock) in Python** that allows **only one thread to execute Python bytecode at a time**.
+* It ensures **thread safety** but can limit **CPU-bound multithreading**.
+
+**Daily-Life Example:**
+
+* Imagine a **single cash counter** in a shop. Only **one customer** can be served at a time, even if there are many in line.
+
+**Explanation:**
+
+* Threads can still be used for **I/O tasks** like reading files or network calls.
+* For CPU-heavy tasks, use **multiprocessing** instead of threads.
+
+```python
+import threading
+
+def print_numbers():
+    for i in range(5):
+        print(i)
+
+thread1 = threading.Thread(target=print_numbers)
+thread2 = threading.Thread(target=print_numbers)
+
+thread1.start()
+thread2.start()
+```
+
+---
+
+
