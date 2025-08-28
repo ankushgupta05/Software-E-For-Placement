@@ -510,4 +510,121 @@ We don’t need to create them—they are always available.
 
 ---
 
-Do you want me to also make a **full table (Local, Enclosed, Global, Built-in) with very easy examples** for quick revision?
+Perfect 👍 Let’s continue in the **easy + complete + interview-style explanations** for Q21–Q25.
+
+---
+
+### **21. How is Exception Handling Done in Python?**
+
+✅ **Answer:**
+Exception handling in Python is used to **catch and handle errors** that occur while the program is running. This prevents the program from crashing unexpectedly.
+
+🔍 **Easy Explanation:**
+
+* Python uses `try`, `except`, `else`, and `finally` blocks for exception handling.
+* `try` → Code that might cause an error
+* `except` → Code to handle the error
+* `else` → Code that runs if there is no error
+* `finally` → Code that **always runs**
+
+```python
+try:
+    num = int(input("Enter a number: "))
+    print(10 / num)
+except ZeroDivisionError:
+    print("Cannot divide by zero!")
+except ValueError:
+    print("Please enter a valid number.")
+finally:
+    print("This will always run.")
+```
+
+---
+
+### **22. What is the Difference Between Python Arrays and Lists?**
+
+✅ **Answer:**
+
+* **List:** Can store items of **different data types** (`int`, `str`, `float`, etc.)
+* **Array:** Stores **only one type of data** (all `int` or all `float`) and is more **efficient for large numeric data**
+
+🔍 **Easy Explanation:**
+
+* Lists are **flexible** and easy to use.
+* Arrays are **faster** when you only need numbers and do calculations.
+
+```python
+# List
+my_list = [1, "Python", 3.5]
+
+# Array
+from array import array
+my_array = array('i', [1, 2, 3])  # only integers
+```
+
+---
+
+### **23. What are Modules and Packages in Python?**
+
+✅ **Answer:**
+
+* **Module:** A Python file containing functions, variables, or classes.
+* **Package:** A collection of multiple modules organized in a folder.
+
+🔍 **Easy Explanation:**
+
+* Modules → Like a **single tool**
+* Packages → Like a **toolbox containing many tools**
+
+```python
+# Using a module
+import math
+print(math.sqrt(16))   # 4
+
+# A package contains many modules (example: NumPy, Pandas)
+```
+
+---
+
+### **24. What is the Difference Between xrange and range Functions?**
+
+✅ **Answer:**
+
+* In **Python 2:**
+
+  * `range()` → Creates a **list** in memory
+  * `xrange()` → Returns an **iterator**, uses less memory
+* In **Python 3:**
+
+  * `range()` behaves like `xrange()` (no `xrange` in Python 3)
+
+🔍 **Easy Explanation:**
+
+* Use `range()` in Python 3 for loops.
+* `xrange` is **memory-efficient** but only in Python 2.
+
+```python
+for i in range(5):
+    print(i)  # 0 1 2 3 4
+```
+
+---
+
+### **25. What is Dictionary Comprehension? Give an Example**
+
+✅ **Answer:**
+Dictionary comprehension is a **quick way to create dictionaries** in one line using a loop or condition.
+
+🔍 **Easy Explanation:**
+
+* Instead of writing multiple lines, you can use `{key: value for ...}`
+
+```python
+squares = {x: x*x for x in range(5)}
+print(squares)  
+# Output: {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+```
+
+---
+
+
