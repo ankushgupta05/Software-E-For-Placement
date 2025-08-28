@@ -1247,3 +1247,117 @@ thread2.start()
 ---
 
 
+Perfect 🙂 Let’s continue with **Q42, Q51–Q54** in **simple, complete, and interview-friendly English style with daily-life examples**.
+
+---
+
+### **42. What is PIP in Python?**
+
+✅ **Answer:**
+PIP stands for **“Pip Installs Packages”**. It is a **package manager for Python** used to install, update, and manage **third-party libraries and packages**.
+
+🔍 **Easy Explanation with Daily-Life Example:**
+
+* Think of PIP like **Amazon or App Store** for Python.
+* You can **search, install, and update apps/libraries** easily.
+
+**Example:**
+
+```bash
+pip install requests      # Install the requests library
+pip uninstall requests    # Remove the requests library
+pip list                  # Show all installed packages
+```
+
+---
+
+### **51. What are Function Annotations in Python?**
+
+✅ **Answer:**
+Function annotations allow you to **add metadata about the types of arguments and return values** of a function. They do **not enforce types** but help with **code readability and documentation**.
+
+**Daily-Life Example:**
+
+* Like writing a **label on a container**: it tells what’s inside but doesn’t stop you from putting something else.
+
+**Example:**
+
+```python
+def greet(name: str, age: int) -> str:
+    return f"Hello {name}, you are {age} years old"
+
+print(greet("Alice", 25))
+```
+
+---
+
+### **52. What are Exception Groups in Python?**
+
+✅ **Answer:**
+Exception Groups were introduced in **Python 3.11**. They allow **handling multiple exceptions together** instead of writing separate try-except blocks for each error.
+
+**Daily-Life Example:**
+
+* Like **catching multiple small spills at once** instead of cleaning each one separately.
+
+**Example:**
+
+```python
+try:
+    raise ExceptionGroup("Multiple Errors", [ValueError("Invalid"), TypeError("Wrong type")])
+except* ValueError as e:
+    print("Caught ValueError:", e)
+```
+
+---
+
+### **53. What is Python Switch Statement?**
+
+✅ **Answer:**
+Python **does not have a traditional switch-case statement**, but you can achieve the same using **if-elif-else** or **dictionary mapping**.
+
+**Daily-Life Example:**
+
+* Like **choosing a meal from a menu**: check each option until you find the matching one.
+
+**Example using dictionary:**
+
+```python
+def switch(day):
+    return {
+        1: "Monday",
+        2: "Tuesday",
+        3: "Wednesday"
+    }.get(day, "Invalid day")
+
+print(switch(2))  # Tuesday
+```
+
+---
+
+### **54. What is the Walrus Operator (`:=`) in Python?**
+
+✅ **Answer:**
+The **walrus operator** (`:=`) allows you to **assign a value to a variable as part of an expression**.
+
+**Daily-Life Example:**
+
+* Like **taking a note while reading**: you both **read the info and store it** at the same time.
+
+**Example:**
+
+```python
+# Without walrus
+n = len([1, 2, 3, 4])
+if n > 3:
+    print(f"List is too long ({n} elements)")
+
+# With walrus
+if (n := len([1, 2, 3, 4])) > 3:
+    print(f"List is too long ({n} elements)")
+```
+
+---
+
+
+
