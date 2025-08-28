@@ -319,3 +319,195 @@ print(my_dict["name"])   # Ankush
 
 ---
 
+
+Awesome 👍 Let’s continue in the same **easy + long explanation style** for Q16–Q20.
+
+---
+
+### **16. What are Built-in Data Types in Python?**
+
+✅ **Answer:**
+Python has several **built-in data types** that are ready to use without importing anything. They are used to store different kinds of values like numbers, text, collections, etc.
+
+🔍 **Easy Explanation:**
+Some important built-in types are:
+
+* **Numeric Types** → `int`, `float`, `complex`
+* **Sequence Types** → `list`, `tuple`, `range`
+* **Text Type** → `str`
+* **Mapping Type** → `dict`
+* **Set Types** → `set`, `frozenset`
+* **Boolean Type** → `bool` (`True`/`False`)
+* **Binary Types** → `bytes`, `bytearray`, `memoryview`
+
+```python
+x = 10          # int
+y = 3.14        # float
+name = "Ankush" # str
+nums = [1, 2, 3] # list
+```
+
+---
+
+### **17. What is the Difference Between a Mutable Datatype and an Immutable Datatype?**
+
+✅ **Answer:**
+
+* **Mutable data type** → Can be **changed/modified** after creation.
+* **Immutable data type** → Cannot be **changed/modified** after creation.
+
+🔍 **Easy Explanation:**
+
+* Mutable means **you can edit it** (like a notebook).
+* Immutable means **you cannot edit it**, you must **create a new one** (like a printed book).
+
+Examples:
+
+* **Mutable** → `list`, `dict`, `set`
+* **Immutable** → `int`, `float`, `str`, `tuple`
+
+```python
+# Mutable
+my_list = [1, 2, 3]
+my_list.append(4)
+print(my_list)  # [1, 2, 3, 4]
+
+# Immutable
+name = "Ankush"
+name = name + " Gupta"  # creates new string
+print(name)  # Ankush Gupta
+```
+
+---
+---
+
+### **19. How is a Dictionary Different from a List?**
+
+✅ **Answer:**
+
+* **List** → Stores items in **order**, accessed using **index numbers**.
+* **Dictionary** → Stores data as **key-value pairs**, accessed using **keys**.
+
+🔍 **Easy Explanation:**
+
+* Use a **list** when you just need an ordered collection.
+* Use a **dictionary** when you need **pairs of related data** (like name → phone number).
+
+```python
+# List
+fruits = ["apple", "banana", "mango"]
+print(fruits[1])   # banana
+
+# Dictionary
+student = {"name": "Ankush", "age": 22}
+print(student["name"])  # Ankush
+```
+
+---
+
+### **20. What is a Docstring in Python?**
+
+✅ **Answer:**
+A **docstring** is a special string used to **document a function, class, or module**. It is written inside **triple quotes (`"""`)** just after the definition.
+
+🔍 **Easy Explanation:**
+
+* It is like a **note or comment** but stored inside the function, so you can access it later with `.__doc__`.
+* Helps others understand what the function/class does.
+
+```python
+def greet(name):
+    """This function greets the person whose name is passed as an argument."""
+    return f"Hello, {name}"
+
+print(greet.__doc__)
+```
+
+---
+
+👉 Do you want me to now combine **Q1–Q20 in one clean README.md file (table format)** so you can keep it as complete interview notes?
+
+
+
+
+Got it 👍 Here’s a **clear, simple, and easy-to-understand English definition** for *Variable Scope in Python*:
+
+---
+
+### **18. What is a Variable Scope in Python?**
+
+✅ **Answer:**
+Variable scope means **the region or part of the program where a variable is recognized and can be used**. In Python, not every variable can be used everywhere. The scope decides **where the variable lives** and **where it can be accessed**.
+
+🔍 **Easy Explanation (LEGB Rule):**
+
+1. **Local (L)** → Variable defined inside a function, accessible only in that function.
+2. **Enclosed (E)** → Variable in an outer function, available to inner/nested functions.
+3. **Global (G)** → Variable created in the main program, accessible everywhere (unless shadowed).
+4. **Built-in (B)** → Python’s reserved names, like `print()`, `len()`, etc.
+
+```python
+x = 10  # Global variable
+
+def func():
+    x = 5  # Local variable
+    print(x)  # Prints local x (5)
+
+func()
+print(x)  # Prints global x (10)
+```
+
+✅ **In short:**
+Variable scope is like a **boundary line** – it tells Python **where you can use a variable and where you cannot**.
+
+---
+
+Do you want me to also give you a **real-life example (like school/classroom analogy)** for even easier understanding?
+
+
+Okay 👍 let’s make this very **easy in English** for you.
+
+---
+
+### 1) **Enclosed (E) Scope in Python**
+
+* **Meaning:** "Enclosed" means **inside another function**.
+* When you create a function **inside another function**, the inner function can use the variables of the outer (enclosed) function.
+* Example:
+
+```python
+def outer():
+    x = 10   # enclosed variable
+    def inner():
+        print(x)  # inner function uses outer variable
+    inner()
+
+outer()
+```
+
+Here, `x` belongs to the **Enclosed scope**.
+
+---
+
+### 2) **Built-in (B) Scope in Python**
+
+* **Meaning:** "Built-in" means **already available in Python by default**.
+* These are functions, constants, and errors that Python gives us automatically.
+* Example functions in built-in scope: `print()`, `len()`, `range()`, etc.
+
+```python
+print(len("Python"))   # print and len are built-in scope
+```
+
+We don’t need to create them—they are always available.
+
+---
+
+✅ **Simple way to remember:**
+
+* **Enclosed (E):** Variable comes from an **outer function**.
+* **Built-in (B):** Variable/function comes from **Python’s own library**.
+
+---
+
+Do you want me to also make a **full table (Local, Enclosed, Global, Built-in) with very easy examples** for quick revision?
