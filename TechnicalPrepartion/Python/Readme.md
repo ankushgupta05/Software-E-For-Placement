@@ -7,11 +7,14 @@ Got it 👍 Here are **simple interview-style answers with explanations** for yo
 ✅ **Answer:**
 Python is an **interpreted language**.
 
-🔍 **Explanation:**
 
-* Python code is first compiled into **bytecode** (intermediate form).
-* Then, the **Python interpreter (PVM – Python Virtual Machine)** executes this bytecode line by line.
-* So, Python is not purely compiled like C/C++ and not purely interpreted either, but mostly considered **interpreted**.
+### 🔍 Easy Explanation:
+
+* In **compiled languages** (like C, C++): the whole program is translated first, then it runs.
+* In **interpreted languages** (like Python): the program runs **line by line** as you write or test it.
+
+👉 That’s why Python is called **interpreted**.
+
 
 ---
 
