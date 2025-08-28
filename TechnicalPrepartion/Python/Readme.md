@@ -750,3 +750,133 @@ say_hello()
 ---
 
 
+
+
+Perfect 🙂 I can rewrite **Q31–Q35** with **longer, simple, easy-to-understand definitions** that are complete for interview prep. Here it is:
+
+---
+
+### **31. How Do You Debug a Python Program?**
+
+✅ **Answer:**
+Debugging in Python is the process of **finding errors (bugs) in your code and fixing them** so that the program runs correctly. Python provides multiple ways to debug a program.
+
+🔍 **Easy Explanation:**
+
+* **Print statements:** Check the values of variables at different points in your program.
+* **`pdb` module:** Python’s built-in debugger lets you **pause the code, step line by line, and inspect variables**.
+* **IDE debugger:** Tools like PyCharm or VSCode allow you to **set breakpoints, watch variables, and run code step by step**.
+
+```python
+import pdb
+
+x = 10
+y = 0
+pdb.set_trace()  # start debugger
+z = x / y        # will raise ZeroDivisionError
+```
+
+---
+
+### **32. What are Iterators in Python?**
+
+✅ **Answer:**
+An iterator in Python is an **object that allows you to traverse through a collection (like list, tuple, or dictionary) one element at a time**.
+
+🔍 **Easy Explanation:**
+
+* Iterators have **two main methods:** `__iter__()` to get the iterator object and `__next__()` to get the next value.
+* Once all items are traversed, it raises **StopIteration**.
+
+```python
+my_list = [1, 2, 3]
+it = iter(my_list)
+print(next(it))  # 1
+print(next(it))  # 2
+print(next(it))  # 3
+```
+
+---
+
+### **33. What are Generators in Python?**
+
+✅ **Answer:**
+Generators are **special kinds of iterators that generate values one by one, only when needed**, instead of storing all values in memory.
+
+🔍 **Easy Explanation:**
+
+* Use the `yield` keyword instead of `return`.
+* Generators are **memory-efficient** and useful for **large datasets or infinite sequences**.
+
+```python
+def my_gen():
+    for i in range(3):
+        yield i
+
+for val in my_gen():
+    print(val)
+# Output: 0 1 2
+```
+
+---
+
+### **34. Does Python Support Multiple Inheritance?**
+
+✅ **Answer:**
+Yes, Python supports **multiple inheritance**, which means a class can inherit **attributes and methods from more than one parent class**.
+
+🔍 **Easy Explanation:**
+
+* Multiple inheritance allows **reusing code from multiple classes**.
+* Python follows **Method Resolution Order (MRO)** to decide which parent method to use if multiple parents have the same method.
+
+```python
+class A:
+    def greet(self):
+        print("Hello from A")
+
+class B:
+    def greet(self):
+        print("Hello from B")
+
+class C(A, B):
+    pass
+
+c = C()
+c.greet()  # Hello from A (MRO chooses A first)
+```
+
+---
+
+### **35. What is Polymorphism in Python?**
+
+✅ **Answer:**
+Polymorphism means **“many forms”**. It allows **the same function, method, or operator to behave differently depending on the object or data type**.
+
+🔍 **Easy Explanation:**
+
+* Same method name in different classes can do **different things**.
+* Same operator like `+` can **add numbers or join strings**.
+
+```python
+# Operator overloading
+print(5 + 3)       # 8 (numbers)
+print("Hi " + "AI") # Hi AI (strings)
+
+# Method overriding
+class Dog:
+    def speak(self):
+        print("Woof!")
+
+class Cat:
+    def speak(self):
+        print("Meow!")
+
+animals = [Dog(), Cat()]
+for a in animals:
+    a.speak()
+# Output: Woof! Meow!
+```
+
+---
+
