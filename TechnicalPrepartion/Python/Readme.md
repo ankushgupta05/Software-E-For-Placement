@@ -628,3 +628,125 @@ print(squares)
 ---
 
 
+Perfect 👍 Let’s continue in the **easy + complete + interview-friendly style** for Q26–Q30.
+
+---
+
+### **26. Is Tuple Comprehension Possible in Python? If Yes, How; If Not, Why?**
+
+✅ **Answer:**
+Tuple comprehension **is not directly possible** in Python. Instead, Python uses **generator expressions** which can be converted into a tuple.
+
+🔍 **Easy Explanation:**
+
+* Unlike lists (`[]`) or dictionaries (`{}`), tuples use `()` which **does not support comprehension directly**.
+* But you can do:
+
+```python
+# Using generator expression with tuple()
+my_tuple = tuple(x*x for x in range(5))
+print(my_tuple)   # (0, 1, 4, 9, 16)
+```
+
+* So, you **cannot write `(x*x for x in range(5))` alone as a tuple**; it creates a generator.
+
+---
+
+### **27. Difference Between List and Tuple in Python**
+
+✅ **Answer:**
+
+| Feature        | List                 | Tuple                       |
+| -------------- | -------------------- | --------------------------- |
+| **Mutability** | Mutable (can change) | Immutable (cannot change)   |
+| **Syntax**     | `[1, 2, 3]`          | `(1, 2, 3)`                 |
+| **Speed**      | Slower               | Faster                      |
+| **Use Case**   | When data can change | When data should not change |
+
+🔍 **Easy Explanation:**
+
+* Use **lists** if you need to **edit** the data.
+* Use **tuples** if the data should **remain fixed**.
+
+---
+
+### **28. Difference Between Shallow Copy and Deep Copy in Python**
+
+✅ **Answer:**
+
+* **Shallow Copy:** Copies only the **outer object**; inner objects are still **linked** to the original.
+* **Deep Copy:** Copies **everything**, including inner objects; changes do **not affect the original**.
+
+🔍 **Easy Explanation:**
+
+* Shallow → like **photocopy of a folder with links** to original files
+* Deep → like **full duplicate folder with all files**
+
+```python
+import copy
+
+original = [[1,2],[3,4]]
+shallow = copy.copy(original)
+deep = copy.deepcopy(original)
+
+original[0][0] = 99
+print(shallow)  # [[99, 2], [3, 4]]  (inner list affected)
+print(deep)     # [[1, 2], [3, 4]]  (inner list safe)
+```
+
+---
+
+### **29. Which Sorting Technique is Used by `sort()` and `sorted()` in Python?**
+
+✅ **Answer:**
+
+* Python uses **Timsort**, which is a combination of **Merge Sort and Insertion Sort**.
+
+🔍 **Easy Explanation:**
+
+* `sort()` → sorts **list in place**
+* `sorted()` → returns a **new sorted list**
+* Timsort is **fast, stable, and efficient** for real-world data
+
+```python
+nums = [3, 1, 4, 2]
+print(sorted(nums))  # [1, 2, 3, 4]
+nums.sort()
+print(nums)          # [1, 2, 3, 4]
+```
+
+---
+
+### **30. What are Decorators in Python?**
+
+✅ **Answer:**
+
+* Decorators are **functions that modify other functions** without changing their code.
+* They are used for **adding functionality** to existing functions.
+
+🔍 **Easy Explanation:**
+
+* Think of decorators as **wrappers** around a function.
+
+```python
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Output:
+# Before function
+# Hello!
+# After function
+```
+
+---
+
+
