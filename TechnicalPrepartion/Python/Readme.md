@@ -977,3 +977,137 @@ print(numbers[::-1])  # [60, 50, 40, 30, 20, 10] (reversed)
 ---
 
 
+Perfect 🙂 Let’s continue with **Q41, 43, 44, 45** in **simple, complete, interview-friendly English style**.
+
+---
+
+### **41. What is a Namespace in Python?**
+
+✅ **Answer:**
+A namespace in Python is **a container that holds names (identifiers) and maps them to objects**. It ensures that **names are unique and do not conflict**.
+
+🔍 **Easy Explanation:**
+
+* Every variable, function, or class has a **name** and a corresponding **object** in memory.
+* Python maintains different **namespaces** for local, global, and built-in names.
+* Think of a namespace like a **dictionary** that maps names to objects.
+
+**Example:**
+
+```python
+x = 10       # global namespace
+def func():
+    y = 5    # local namespace
+    print(y)
+
+func()
+print(x)
+```
+
+**Simple way to remember:** Namespaces **organize names** so Python knows which object you are referring to.
+
+---
+
+### **43. What is the zip() Function in Python?**
+
+✅ **Answer:**
+The `zip()` function is used to **combine multiple iterables (like lists or tuples) element-wise** into a single iterable of tuples.
+
+🔍 **Easy Explanation:**
+
+* It takes two or more sequences and returns a sequence of tuples.
+* Each tuple contains one element from each input sequence at the same position.
+
+**Example:**
+
+```python
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+
+combined = list(zip(names, ages))
+print(combined)
+# Output: [('Alice', 25), ('Bob', 30), ('Charlie', 35)]
+```
+
+**Simple way to remember:** `zip()` **pairs elements together** from multiple lists.
+
+---
+
+### **44. What are Pickling and Unpickling in Python?**
+
+✅ **Answer:**
+
+* **Pickling:** Converting a Python object into a **byte stream** so it can be **saved to a file or transferred**.
+* **Unpickling:** Converting the byte stream **back to the original Python object**.
+
+🔍 **Easy Explanation:**
+
+* Use **pickle module** in Python.
+* Pickling is like **saving your Python object** to a file.
+* Unpickling is like **loading it back**.
+
+**Example:**
+
+```python
+import pickle
+
+data = {"name": "Alice", "age": 25}
+
+# Pickling
+with open("data.pkl", "wb") as f:
+    pickle.dump(data, f)
+
+# Unpickling
+with open("data.pkl", "rb") as f:
+    loaded_data = pickle.load(f)
+
+print(loaded_data)
+# Output: {'name': 'Alice', 'age': 25}
+```
+
+**Simple way to remember:** Pickling = **save object**, Unpickling = **load object**.
+
+---
+
+### **45. Difference Between @classmethod, @staticmethod, and Instance Methods**
+
+✅ **Answer:**
+
+| Method Type         | Access to Class | Access to Instance | Decorator       | Example Usage                                            |
+| ------------------- | --------------- | ------------------ | --------------- | -------------------------------------------------------- |
+| **Instance Method** | No              | Yes                | None            | Works with **self** (object-specific data)               |
+| **Class Method**    | Yes             | No                 | `@classmethod`  | Works with **cls** (class-level data)                    |
+| **Static Method**   | No              | No                 | `@staticmethod` | Doesn’t use class or instance data, independent function |
+
+🔍 **Easy Explanation:**
+
+* **Instance method:** Works with **individual objects**.
+* **Class method:** Works with **class-level data**, shared by all objects.
+* **Static method:** **Independent** function inside class, doesn’t access class or object data.
+
+**Example:**
+
+```python
+class MyClass:
+    class_var = 100
+
+    def instance_method(self):
+        print("Instance method", self.class_var)
+
+    @classmethod
+    def class_method(cls):
+        print("Class method", cls.class_var)
+
+    @staticmethod
+    def static_method():
+        print("Static method, no class or instance access")
+
+obj = MyClass()
+obj.instance_method()   # Instance method 100
+MyClass.class_method()  # Class method 100
+MyClass.static_method() # Static method, no class or instance access
+```
+
+---
+
+
