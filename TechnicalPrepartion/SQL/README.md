@@ -455,5 +455,133 @@ Here, both columns together make the primary key.
 👉 These rules make sure that the database always stores **valid and reliable data**.
 
 ---
+ठीक है 👍 मैं आपको दोनों के पूरे simple explanation देता हूँ:
 
-Do you want me to also add **real-life examples** for both (like School/Bank DB examples) so you can remember easily?
+---
+
+### **37. What is the difference between UNION and UNION ALL?**
+
+* **UNION** → Combines results of two or more SELECT queries **and removes duplicate rows**.
+* **UNION ALL** → Combines results of two or more SELECT queries **and keeps duplicates**.
+
+✅ Example:
+
+```sql
+SELECT city FROM Customers
+UNION
+SELECT city FROM Suppliers;
+```
+
+👉 This will **remove duplicate cities**.
+
+```sql
+SELECT city FROM Customers
+UNION ALL
+SELECT city FROM Suppliers;
+```
+
+👉 This will **show all cities, including duplicates**.
+
+---
+
+### **38. How does the CASE statement work in SQL?**
+
+* **CASE** statement works like **IF-ELSE** in SQL.
+* It checks conditions **one by one** and returns the value for the first true condition.
+* If no condition is true, it returns the **ELSE** part (if given).
+
+✅ Example:
+
+```sql
+SELECT name,
+       CASE
+         WHEN marks >= 90 THEN 'A'
+         WHEN marks >= 75 THEN 'B'
+         WHEN marks >= 50 THEN 'C'
+         ELSE 'Fail'
+       END AS Grade
+FROM Students;
+```
+
+👉 Here:
+
+* If `marks >= 90` → Grade is A
+* If `marks >= 75` → Grade is B
+* If `marks >= 50` → Grade is C
+* Otherwise → Fail
+
+---
+
+### ✅ 39. What are scalar functions in SQL?
+
+**Answer:**
+Scalar functions in SQL are functions that take one value as input and return a single value as output.
+They work on each row individually and return a result for every row.
+
+**Examples (with names):**
+
+* **UPPER()** → Converts text to uppercase.
+* **LOWER()** → Converts text to lowercase.
+* **LEN()** or **LENGTH()** → Finds the length of a string.
+* **ROUND()** → Rounds a number to the specified decimal places.
+* **GETDATE()** → Returns the current date and time.
+
+👉 These are called **scalar functions** because they return a **single (scalar) value**.
+
+Perfect 👍 I’ll give you **very simple, easy-to-remember explanations** for these:
+
+---
+
+### **53. What is a sequence in SQL?**
+
+👉 A **sequence** is like a **number generator**.
+
+* It gives a **unique number every time** you call it.
+* Mostly used for **auto-incrementing IDs** in tables (like roll numbers, invoice numbers).
+
+---
+
+### **50. What is the difference between clustered and non-clustered indexes?**
+
+* **Clustered Index**:
+  👉 The data in the table is **stored physically in the order of the index**.
+  👉 A table can have **only 1 clustered index** (like a main arrangement).
+
+* **Non-Clustered Index**:
+  👉 It is a **separate structure** that just points to the actual data.
+  👉 A table can have **many non-clustered indexes**.
+
+🔑 Think like:
+
+* **Clustered** = Book pages are arranged in alphabetical order.
+* **Non-Clustered** = Index at the back of the book that tells you the page number.
+
+---
+
+### **57. What is the purpose of the SQL MERGE statement?**
+
+👉 **MERGE** is used to **combine INSERT, UPDATE, and DELETE** in one command.
+
+* If a record **already exists** → it **updates**.
+* If a record **does not exist** → it **inserts**.
+* If a record is **not needed** → it can **delete**.
+
+🔑 Helpful in **synchronizing two tables**.
+
+---
+
+### **66. What are the differences between OLTP and OLAP systems?**
+
+* **OLTP (Online Transaction Processing)**:
+  👉 Handles **day-to-day small transactions**.
+  👉 Example: ATM, Railway booking, Online shopping.
+  👉 Focus: **Speed & Accuracy** for daily operations.
+
+* **OLAP (Online Analytical Processing)**:
+  👉 Handles **large data for analysis & reports**.
+  👉 Example: Business reports, Sales trends, Data mining.
+  👉 Focus: **Decision making** (not daily work).
+
+---
+
+⚡ Would you like me to also give **tiny real-life examples** (like ATM = OLTP, Sales Report = OLAP) for each, so they stick in your memory even more?
