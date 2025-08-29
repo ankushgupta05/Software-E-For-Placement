@@ -344,3 +344,76 @@ Types of Constraints:
 
 ---
 
+
+Here are the answers for **Q26–Q30** in **simple and clear language** 👇
+
+---
+
+### **26. What is a cursor in SQL?**
+
+* A **cursor** is like a pointer that allows you to **fetch and process rows one by one** from a result set.
+* It is useful when you want to handle each row individually (like in loops).
+
+**Example:**
+
+```sql
+DECLARE cursor_name CURSOR FOR
+SELECT name FROM students;
+```
+
+---
+
+### **27. What is a trigger in SQL?**
+
+* A **trigger** is a special kind of stored procedure that runs **automatically** when certain events happen in a table (like INSERT, UPDATE, or DELETE).
+
+**Example:**
+If you insert a new order, a trigger can automatically reduce the product’s stock.
+
+---
+
+### **28. What is the purpose of the SQL SELECT statement?**
+
+* The **SELECT statement** is used to **fetch data** from a database.
+* It is the most commonly used SQL command.
+
+**Example:**
+
+```sql
+SELECT name, age FROM students;
+```
+
+---
+
+### **29. What are NULL values in SQL?**
+
+* A **NULL value** means **missing, unknown, or not applicable data**.
+* It is **not the same as 0 or empty string**.
+
+**Example:**
+
+```sql
+INSERT INTO students (name, age) VALUES ('Ankush', NULL);
+```
+
+Here, the **age** is not known.
+
+---
+
+### **30. What is a stored procedure?**
+
+* A **stored procedure** is a **set of SQL statements** saved in the database that can be executed whenever needed.
+* It helps to reuse code and improves performance.
+
+**Example:**
+
+```sql
+CREATE PROCEDURE GetAllStudents
+AS
+SELECT * FROM students;
+```
+
+---
+
+👉 Do you want me to continue in the same **simple style** for **Q31–Q40** also?
+
