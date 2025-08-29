@@ -470,3 +470,241 @@ python manage.py migrate          # apply it to DB
 * Run `migrate` → Table `Student` is created in DB.
 
 ---
+
+Great questions 👌 Let’s go step by step in **simple words + examples** so that anyone can understand.
+
+---
+
+### ✅ Q21. Difference between **MVC** and **MVT** design patterns?
+
+**MVC (Model–View–Controller)** → General web design pattern.
+**MVT (Model–View–Template)** → Django’s design pattern (similar to MVC but a little different).
+
+| MVC                                                   | MVT (Django)                                                                                 |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **Model** → Manages data & database.                  | **Model** → Same (handles database).                                                         |
+| **View** → Displays data to user.                     | **Template** → Handles presentation (HTML, CSS).                                             |
+| **Controller** → Controls logic (decides what to do). | **View** → Works like controller (contains business logic, fetches data, sends to template). |
+
+👉 **Simple Example**
+If user requests `/students/`:
+
+* **Model** → Student table (data stored).
+* **View (Django)** → Python function that fetches students from DB.
+* **Template** → HTML file to show students.
+
+So Django replaces **Controller** with its own **View**, and instead of **View**, it uses **Template**.
+
+---
+
+### ✅ Q22. What is Django ORM?
+
+**ORM = Object Relational Mapper**
+
+* It allows you to interact with the database using **Python code instead of raw SQL**.
+* You don’t need to write `SELECT * FROM table...`, just use Python objects.
+
+👉 **Example:**
+
+```python
+# models.py
+from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+```
+
+Now instead of SQL:
+
+```sql
+SELECT * FROM Student WHERE age=20;
+```
+
+We can use ORM in Python:
+
+```python
+students = Student.objects.filter(age=20)
+```
+
+✅ Easy, readable, and database-independent.
+
+---
+
+### ✅ Q23. What is Superuser?
+
+* A **Superuser** is an admin user in Django with **all permissions**.
+* Can **add, edit, delete, view** any data from the **Django Admin Panel**.
+* Created using command:
+
+```bash
+python manage.py createsuperuser
+```
+
+👉 Example:
+
+* Suppose you are building a school system.
+* Superuser (`admin`) can manage **students, teachers, fees, results** from the admin dashboard without writing code.
+
+---
+
+📌 In short:
+
+* **MVC vs MVT** → Django replaces Controller with View and View with Template.
+* **ORM** → Write database queries in Python instead of SQL.
+* **Superuser** → All-powerful admin user in Django.
+
+---
+Perfect 👍 Let’s go step by step with **deep but easy explanations** so that **anyone can understand clearly**.
+
+---
+
+## ✅ Q17. What are the sessions in Django?
+
+👉 **Definition:**
+A **session** in Django is a way to store information (data) about a specific user across multiple requests (pages).
+
+* HTTP is **stateless**, meaning the server does not remember anything about the user between requests.
+* **Sessions** help in storing data (like login info, cart items, preferences) so the server can "remember" the user.
+
+👉 **How it works:**
+
+* Django generates a **Session ID** (unique key).
+* This ID is stored in the user's **browser cookie**.
+* The actual session data is stored in the **database** (or cache, or file system).
+* Whenever the user makes a request, Django checks the session ID and retrieves the data.
+
+👉 **Example:**
+
+```python
+# views.py
+def set_session(request):
+    request.session['username'] = 'Ankush'
+    return HttpResponse("Session set!")
+
+def get_session(request):
+    name = request.session.get('username')
+    return HttpResponse(f"Hello, {name}")
+```
+
+* First view stores `"Ankush"` in session.
+* Second view retrieves it later (even if you move to another page).
+
+👉 **Uses:**
+
+* Login system (storing user ID).
+* Shopping cart (store items before checkout).
+* User preferences (theme, language, etc.).
+
+---
+
+## ✅ Q18. Define static files and explain their uses.
+
+👉 **Definition:**
+**Static files** are the files that don’t change dynamically, such as:
+
+* CSS (for styling)
+* JavaScript (for frontend logic)
+* Images, logos, fonts, etc.
+
+👉 **Why needed:**
+
+* They make your website look beautiful and interactive.
+* Django provides a special system to manage and serve these files efficiently.
+
+👉 **Example folder structure:**
+
+```
+project/
+  app/
+    static/
+      css/
+        style.css
+      js/
+        script.js
+```
+
+👉 **settings.py setup:**
+
+```python
+STATIC_URL = '/static/'
+```
+
+👉 **Usage in templates:**
+
+```html
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<img src="{% static 'images/logo.png' %}" alt="Logo">
+```
+
+👉 **Uses:**
+
+* Make the site attractive (CSS, images).
+* Improve user experience (JavaScript).
+* Keep project organized (separate static files from dynamic content).
+
+---
+
+## ✅ Q19. What are templates in Django?
+
+👉 **Definition:**
+A **template** in Django is an **HTML file with placeholders** (variables, tags, logic).
+
+* Templates allow mixing **HTML + Django Template Language (DTL)**.
+* They make webpages **dynamic** (content changes depending on data from backend).
+
+👉 **Example template (home.html):**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+    <h1>Welcome {{ name }}</h1>
+    <p>Today is {{ date }}</p>
+</body>
+</html>
+```
+
+👉 **View (views.py):**
+
+```python
+from django.shortcuts import render
+import datetime
+
+def home(request):
+    return render(request, 'home.html', {
+        'name': 'Ankush',
+        'date': datetime.date.today()
+    })
+```
+
+👉 **Output on browser:**
+
+```
+Welcome Ankush
+Today is 2025-08-29
+```
+
+👉 **Uses of templates:**
+
+* Display data dynamically.
+* Reuse design (same template for many users).
+* Keep code clean (separating HTML from Python logic).
+
+---
+
+✅ In short:
+
+* **Sessions** = Store user data across pages.
+* **Static Files** = CSS, JS, Images for styling/interaction.
+* **Templates** = HTML + Django Template Language to show dynamic content.
+
+---
+
+
+
+
