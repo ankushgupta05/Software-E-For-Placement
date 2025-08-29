@@ -84,3 +84,38 @@ Status codes help clients understand if their request worked or if something wen
 If you want, I can also make a super short 1-line version for quick interview answers.
 
 
+
+
+Here’s a simple explanation with the question included:
+
+
+---
+
+Q: What is the difference between PUT and PATCH?
+
+A:
+
+PUT: Updates the entire resource. If some fields are missing, they may be overwritten.
+
+PATCH: Updates only specific fields of a resource, leaving the rest unchanged.
+
+
+Example:
+
+PUT: Update a user → must send name, email, age every time.
+
+PATCH: Update a user’s email → only send the email field.
+
+
+Summary:
+
+PUT = full update
+
+PATCH = partial update
+
+
+
+---
+
+I can also make a 1-line version for interviews if you want.
+
