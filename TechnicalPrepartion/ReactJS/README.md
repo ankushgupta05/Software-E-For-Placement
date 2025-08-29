@@ -1,3 +1,18 @@
+
+
+Top 10 Commonly Asked ReactJS Interview Questions
+What is React?
+What are the key features of React?
+What is the Virtual DOM, and how does it work?
+What are React components?
+What is the difference between a functional component and a class component in React?
+What are React Hooks?
+What is useState in React?
+What are Custom Hooks?
+What is JSX?
+What is the difference between props and state in React?
+
+
 Got it 👍 Let’s make it super easy English now:
 
 
