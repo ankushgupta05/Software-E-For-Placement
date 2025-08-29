@@ -31,3 +31,23 @@ A weather app asks a server for today’s temperature using a RESTful API, and t
 
 I can also make a super short 1-line version that’s perfect for interviews. Do you want me to do that?
 
+
+Here’s the simple definition with full forms included:
+
+
+---
+
+Q: What is the difference between REST and SOAP?
+
+A:
+
+REST (Representational State Transfer): A simple and fast way for apps to communicate over the web, usually using JSON.
+
+SOAP (Simple Object Access Protocol): A strict and formal way to exchange data between apps, always using XML.
+
+
+
+---
+
+Do you want me to add a super short version for interviews too?
+
