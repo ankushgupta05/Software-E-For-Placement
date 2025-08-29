@@ -707,4 +707,270 @@ Today is 2025-08-29
 
 
 
+Here’s the continuation in the same simple **Q\&A format with examples** 👇
+
+---
+
+### ✅ Q 24. What is Jinja templating?
+
+**Answer:**
+
+* Jinja is a template engine used in Django (by default) for rendering HTML.
+* It allows writing **dynamic HTML** by mixing Python-like syntax in templates.
+* Example:
+
+```html
+<!-- templates/example.html -->
+<h1>Hello, {{ name }}!</h1>
+{% if age > 18 %}
+    <p>You are an adult.</p>
+{% else %}
+    <p>You are a minor.</p>
+{% endif %}
+```
+
+```python
+# views.py
+from django.shortcuts import render
+
+def home(request):
+    return render(request, "example.html", {"name": "Ankush", "age": 21})
+```
+
+✅ Output:
+
+```
+Hello, Ankush!
+You are an adult.
+```
+
+---
+
+### ✅ Q 25. What do you mean by the csrf\_token?
+
+**Answer:**
+
+* `csrf_token` stands for **Cross-Site Request Forgery token**.
+* It is a **security measure** in Django to protect against malicious POST requests.
+* When you submit a form, Django checks if the token is present and valid.
+
+**Example:**
+
+```html
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="username">
+    <button type="submit">Submit</button>
+</form>
+```
+
+🔐 Without `{% csrf_token %}`, Django will reject the POST request for security reasons.
+
+---
+
+### ✅ Q 26. Explain the use of Middlewares in Django.
+
+**Answer:**
+
+* Middlewares are **hooks** in Django’s request/response cycle.
+* They sit **between the request and the response** and can process them.
+* Example uses:
+
+  * Authentication
+  * Session management
+  * Security checks (like CSRF, XSS protection)
+
+**Example:**
+Some default middlewares in `settings.py`:
+
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+]
+```
+
+➡️ Example: CSRF middleware checks every POST request for valid csrf\_token.
+
+---
+
+### ✅ Q 27. What are ‘signals’?
+
+**Answer:**
+
+* Signals are **Django’s way of sending notifications when something happens** in the project.
+* Example: When a user is created, you may want to automatically create a profile for them.
+
+**Example:**
+
+```python
+# signals.py
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from .models import Profile
+
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+```
+
+➡️ Here, whenever a new `User` is saved, a `Profile` is automatically created.
+
+---
+
+Perfect 👍 Let’s cover them one by one in a **simple + example-based** way:
+
+---
+
+### ✅ Q28. What is Media Root?
+
+* **Definition**:
+  In Django, **Media Root** is the directory where **user-uploaded files** (like profile pictures, documents, etc.) are stored.
+
+* **Settings Example** (`settings.py`):
+
+  ```python
+  MEDIA_URL = '/media/'   # URL to access media files
+  MEDIA_ROOT = BASE_DIR / 'media'  # Folder inside project to store uploads
+  ```
+
+* **Usage Example** (`models.py`):
+
+  ```python
+  from django.db import models
+
+  class Profile(models.Model):
+      name = models.CharField(max_length=100)
+      photo = models.ImageField(upload_to='profiles/')
+  ```
+
+  👉 Uploaded images will be saved in `media/profiles/`.
+
+---
+
+### ✅ Q29. How you can include and inherit files in your application?
+
+* Django uses **Template Inheritance** (like HTML inheritance).
+
+* **base.html** (parent template):
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+      <title>{% block title %}My Site{% endblock %}</title>
+  </head>
+  <body>
+      <header>My Website Header</header>
+      {% block content %}{% endblock %}
+  </body>
+  </html>
+  ```
+
+* **home.html** (child template):
+
+  ```html
+  {% extends 'base.html' %}
+
+  {% block title %}Home Page{% endblock %}
+
+  {% block content %}
+      <h1>Welcome to Home Page</h1>
+  {% endblock %}
+  ```
+
+👉 This avoids writing the same HTML code again and again.
+
+---
+
+### ✅ Q30. How do you connect your Django Project to the database?
+
+* Configuration is done inside `settings.py`.
+
+**Example (PostgreSQL):**
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb',
+        'USER': 'myuser',
+        'PASSWORD': 'mypassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+```
+
+👉 After setting this, run:
+
+```bash
+python manage.py migrate
+```
+
+to create tables in the database.
+
+---
+
+### ✅ Q31. Explain the caching strategies of Django.
+
+* **Caching** = storing data temporarily so that future requests are faster.
+* Django supports multiple caching strategies:
+
+1. **File-based Cache**
+   Stores cache data in files.
+
+   ```python
+   CACHES = {
+       'default': {
+           'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+           'LOCATION': '/var/tmp/django_cache',
+       }
+   }
+   ```
+
+2. **Database Cache**
+   Stores cache inside a database table.
+
+   ```python
+   CACHES = {
+       'default': {
+           'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+           'LOCATION': 'my_cache_table',
+       }
+   }
+   ```
+
+3. **In-Memory Cache (LocMem)** – default, fastest for small projects.
+
+   ```python
+   CACHES = {
+       'default': {
+           'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+           'LOCATION': 'unique-snowflake',
+       }
+   }
+   ```
+
+4. **Memcached / Redis** – used in large projects for high performance.
+
+👉 Example of caching in a view:
+
+```python
+from django.views.decorators.cache import cache_page
+
+@cache_page(60 * 15)  # cache for 15 minutes
+def my_view(request):
+    return HttpResponse("This is cached data")
+```
+
+---
+
+
+
 
