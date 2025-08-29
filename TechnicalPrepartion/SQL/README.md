@@ -84,5 +84,76 @@ SELECT * FROM employees;
 (fetches all employee records).
 
 ---
+Got it 👍 You want **complete but simple interview-ready definitions** for each SQL question. Here’s the refined version:
 
-Do you want me to **continue 11–20 in the same short interview style**?
+---
+
+### **11. What are the different operators available in SQL?**
+
+SQL operators are special symbols or keywords used to perform operations on data in queries.
+
+* **Arithmetic Operators** → `+`, `-`, `*`, `/`, `%` (for mathematical calculations)
+* **Comparison Operators** → `=`, `!=` / `<>`, `>`, `<`, `>=`, `<=` (for comparing values)
+* **Logical Operators** → `AND`, `OR`, `NOT` (for combining conditions)
+* **Special Operators** → `BETWEEN`, `LIKE`, `IN`, `IS NULL`, `EXISTS` (for advanced filtering)
+
+---
+
+### **12. What is a view in SQL?**
+
+A **view** is a **virtual table** based on the result of a SQL query.
+
+* It doesn’t store data itself, but shows data from one or more tables.
+* It helps simplify complex queries, improve security, and provide a customized way of looking at data.
+
+👉 Example:
+
+```sql
+CREATE VIEW employee_salary AS
+SELECT name, salary FROM employees WHERE salary > 50000;
+```
+
+---
+
+### **13. What is the purpose of the UNIQUE constraint?**
+
+The **UNIQUE constraint** ensures that all values in a column (or set of columns) are **different**.
+
+* Unlike the **PRIMARY KEY**, a table can have multiple UNIQUE constraints.
+* It allows `NULL` values (but only one NULL per column).
+
+👉 Example:
+
+```sql
+CREATE TABLE students (
+   student_id INT UNIQUE,
+   email VARCHAR(50) UNIQUE
+);
+```
+
+---
+
+### **14. What are the different types of joins in SQL?**
+
+SQL **joins** combine rows from two or more tables based on a related column.
+
+* **INNER JOIN** → Returns only matching rows from both tables.
+* **LEFT JOIN (LEFT OUTER JOIN)** → Returns all rows from the left table + matching rows from the right.
+* **RIGHT JOIN (RIGHT OUTER JOIN)** → Returns all rows from the right table + matching rows from the left.
+* **FULL JOIN (FULL OUTER JOIN)** → Returns all rows when there is a match in either table.
+* **CROSS JOIN** → Returns all possible combinations (Cartesian product).
+* **SELF JOIN** → A table joined with itself.
+
+---
+
+### **15. What is the difference between INNER JOIN and OUTER JOIN?**
+
+* **INNER JOIN** → Returns only rows where there is a match in both tables.
+  👉 Example: Only employees that belong to a department.
+
+* **OUTER JOIN** → Returns matching rows + non-matching rows (depending on LEFT, RIGHT, or FULL).
+  👉 Example: All employees, even if they don’t belong to any department.
+
+---
+
+✅ Would you like me to continue writing **Q16–Q20 in the same full definition style** so you’ll have a **complete set of 20 SQL interview questions**?
