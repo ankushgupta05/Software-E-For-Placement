@@ -1,5 +1,5 @@
 
-
+```
 Top 10 Commonly Asked ReactJS Interview Questions
 What is React?
 What are the key features of React?
@@ -11,7 +11,7 @@ What is useState in React?
 What are Custom Hooks?
 What is JSX?
 What is the difference between props and state in React?
-
+```
 
 Got it 👍 Let’s make it super easy English now:
 
