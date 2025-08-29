@@ -455,7 +455,7 @@ Alright 👍 Let’s frame it **with the question + proper answer** so you can u
 ### 📘 Definition:
 
 The **Virtual DOM** in React is a **lightweight copy of the real DOM** stored in memory.
-It allows React to **efficiently update the UI** by changing only the parts of the real DOM that actually changed, instead of re-rendering the whole page.
+It helps React update the UI efficiently by changing only the parts that need updating, instead of re-rendering the entire page.
 
 ---
 
