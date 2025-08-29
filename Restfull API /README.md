@@ -119,3 +119,61 @@ PATCH = partial update
 
 I can also make a 1-line version for interviews if you want.
 
+
+
+Here’s a simple explanation for all three questions:
+
+
+---
+
+Q6: What is statelessness in REST?
+
+A:
+Statelessness means that each request from the client to the server must contain all the information needed to process it.
+
+The server does not store any client session between requests.
+
+
+Example:
+If a client asks for user data, it must send the user ID every time; the server won’t remember previous requests.
+
+
+---
+
+Q7: What is idempotency in HTTP methods?
+
+A:
+Idempotency means that making the same request multiple times has the same effect as making it once.
+
+Example:
+
+GET /users → safe and idempotent (no changes).
+
+PUT /users/1 → idempotent (updating the same user with same data multiple times gives same result).
+
+POST /users → not idempotent (creates new users every time).
+
+
+
+---
+
+Q8: How do you handle authentication in REST APIs? (JWT, OAuth2, API keys)
+
+A:
+Authentication ensures only authorized users can access resources. Common methods:
+
+1. JWT (JSON Web Token): Client gets a token after login and sends it with each request.
+
+
+2. OAuth2: Users log in via a third-party service (like Google) to get access tokens.
+
+
+3. API keys: Server issues a unique key to the client, which must be sent with each request.
+
+
+
+
+---
+
+If you want, I can make super short 1-line versions of all three for interviews.
+
