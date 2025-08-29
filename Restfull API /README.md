@@ -177,3 +177,70 @@ Authentication ensures only authorized users can access resources. Common method
 
 If you want, I can make super short 1-line versions of all three for interviews.
 
+
+
+
+Here’s a simple explanation for all three questions:
+
+
+---
+
+Q9: What is CORS and how do you handle it in Python?
+
+A:
+CORS (Cross-Origin Resource Sharing) is a security feature in browsers that blocks requests from one domain to another unless allowed by the server.
+
+Handling in Python (Flask/Django):
+
+Flask: Use flask-cors library:
+
+
+from flask_cors import CORS
+CORS(app)
+
+Django: Add 'corsheaders' middleware and configure allowed origins in settings.py.
+
+
+
+---
+
+Q10: Difference between REST and GraphQL
+
+Feature	REST	GraphQL
+
+Data fetching	Multiple endpoints for different data	Single endpoint, client specifies what it needs
+Over/Under fetching	Possible	Avoided
+Flexibility	Fixed responses	Highly flexible
+Complexity	Simple	Slightly complex
+Versioning	Often needed	Usually not needed
+
+
+Summary:
+
+REST = multiple endpoints, fixed data.
+
+GraphQL = single endpoint, client decides data structure.
+
+
+
+---
+
+Q11: Authentication and Authorization definition
+
+Authentication: Verifying who the user is. (Login with username/password, token, etc.)
+
+Authorization: Verifying what the user can access. (Permissions like read, write, delete)
+
+
+Example:
+
+Login → Authentication
+
+Accessing admin panel → Authorization
+
+
+
+---
+
+If you want, I can make short 1-line answers for all three for interviews.
+
