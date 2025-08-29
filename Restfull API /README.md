@@ -51,3 +51,36 @@ SOAP (Simple Object Access Protocol): A strict and formal way to exchange data b
 
 Do you want me to add a super short version for interviews too?
 
+
+Here’s an easy explanation with the question included:
+
+
+---
+
+Q: What are status codes? Give examples (200, 201, 400, 404, 500).
+
+A:
+Status codes are numbers sent by a server to tell the client (like a web browser or app) how a request went.
+
+Examples:
+
+200 OK – Request was successful.
+
+201 Created – New resource was successfully created.
+
+400 Bad Request – The client sent invalid data.
+
+404 Not Found – The requested resource does not exist.
+
+500 Internal Server Error – The server had an error.
+
+
+Summary:
+Status codes help clients understand if their request worked or if something went wrong.
+
+
+---
+
+If you want, I can also make a super short 1-line version for quick interview answers.
+
+
