@@ -414,6 +414,46 @@ SELECT * FROM students;
 ```
 
 ---
+Sure 👍 let’s do **33** and **34** in a **simple and complete way**:
 
-👉 Do you want me to continue in the same **simple style** for **Q31–Q40** also?
+---
 
+### **33. What is a Composite Primary Key?**
+
+A **composite primary key** is a **primary key made up of two or more columns** in a table.
+
+* It is used when a **single column cannot uniquely identify a row**, but a **combination of columns** can.
+* Example: In a table storing **Student\_Courses**, neither `student_id` nor `course_id` alone is unique. But the combination (`student_id`, `course_id`) is unique.
+
+✅ Example:
+
+```sql
+CREATE TABLE Student_Courses (
+    student_id INT,
+    course_id INT,
+    PRIMARY KEY (student_id, course_id)
+);
+```
+
+Here, both columns together make the primary key.
+
+---
+
+### **34. How is Data Integrity Maintained in SQL Databases?**
+
+**Data Integrity** means keeping data **accurate, correct, and consistent** in the database. SQL maintains integrity using rules and constraints:
+
+1. **Primary Key** → Ensures each row is unique.
+2. **Foreign Key** → Maintains **referential integrity** (child record must match a parent record).
+3. **Unique Constraint** → Prevents duplicate values in a column.
+4. **Not Null Constraint** → Ensures important columns cannot be left empty.
+5. **Check Constraint** → Restricts values to valid ranges.
+   Example: `CHECK (age >= 18)`
+6. **Default Values** → Provides automatic values when none are given.
+7. **Transactions** → Ensure that multiple operations complete together (Atomicity, Consistency, Isolation, Durability – **ACID properties**).
+
+👉 These rules make sure that the database always stores **valid and reliable data**.
+
+---
+
+Do you want me to also add **real-life examples** for both (like School/Bank DB examples) so you can remember easily?
