@@ -971,6 +971,132 @@ def my_view(request):
 
 ---
 
+Great set of questions 👍 Let’s go one by one in **easy and deep explanation** so that anyone can understand.
+
+---
+
+## ✅ Q32. Give the exception classes present in Django
+
+In Django, exceptions are special error classes that are raised when something goes wrong. They help developers handle errors gracefully.
+
+### Common Exception Classes in Django:
+
+1. **ObjectDoesNotExist** → Raised when a database query does not return any result.
+
+   ```python
+   from django.core.exceptions import ObjectDoesNotExist
+   ```
+2. **MultipleObjectsReturned** → Raised when a query that expects one object returns multiple.
+3. **ValidationError** → Raised when data validation fails (e.g., form or model validation).
+4. **PermissionDenied** → Raised when a user does not have permission to access something.
+5. **SuspiciousOperation** → Raised for potentially dangerous operations (like wrong request headers).
+6. **ImproperlyConfigured** → Raised when Django settings or configurations are wrong.
+7. **FieldError** → Raised when there is an invalid field in queries or models.
+8. **MiddlewareNotUsed** → Raised when middleware is not correctly loaded.
+
+👉 These exceptions help in debugging and making web apps safe.
+
+---
+
+## ✅ Q33. What is NoSQL and Does Django support NoSQL?
+
+### **NoSQL**:
+
+* **NoSQL** = "Not Only SQL".
+* It is a type of database that does not use traditional relational tables.
+* Data is stored in different formats:
+
+  * **Document-based** (MongoDB)
+  * **Key-Value pairs** (Redis)
+  * **Wide Column** (Cassandra)
+  * **Graph databases** (Neo4j)
+
+### **Does Django support NoSQL?**
+
+* By default, Django supports **SQL databases only** (like PostgreSQL, MySQL, SQLite, Oracle).
+* But, we can use **third-party libraries** for NoSQL:
+
+  * **Djongo** → for MongoDB
+  * **django-mongodb-engine** (older)
+  * **django-redis** → for caching with Redis
+
+👉 So Django is **not built for NoSQL by default**, but you can integrate NoSQL using external packages.
+
+---
+
+## ✅ Q34. What are the different model inheritance styles in Django?
+
+In Django, model inheritance helps us reuse and organize database models better.
+
+### Types of Model Inheritance:
+
+1. **Abstract Base Classes**
+
+   * Used when you want to put common fields in one parent class.
+   * Parent table is **not created in database**.
+
+   ```python
+   class CommonInfo(models.Model):
+       created_at = models.DateTimeField(auto_now_add=True)
+       updated_at = models.DateTimeField(auto_now=True)
+       class Meta:
+           abstract = True
+
+   class Student(CommonInfo):
+       name = models.CharField(max_length=100)
+   ```
+
+2. **Multi-Table Inheritance**
+
+   * Each model has its **own database table**.
+   * Child table links to parent using **OneToOneField** automatically.
+
+   ```python
+   class Person(models.Model):
+       name = models.CharField(max_length=100)
+
+   class Student(Person):
+       roll_no = models.IntegerField()
+   ```
+
+3. **Proxy Models**
+
+   * No new table is created.
+   * Just changes **Python-level behavior** (like adding extra methods).
+
+   ```python
+   class StudentProxy(Student):
+       class Meta:
+           proxy = True
+       def welcome(self):
+           return f"Welcome {self.name}"
+   ```
+
+👉 So Django supports **Abstract, Multi-table, and Proxy inheritance**.
+
+---
+
+## ✅ Q35. What databases are supported by Django?
+
+By default, Django officially supports **Relational Databases (RDBMS)**:
+
+1. **PostgreSQL** (Best supported)
+2. **MySQL**
+3. **SQLite** (Default for development)
+4. **Oracle**
+
+### Unofficial / Third-Party Database Support:
+
+* **Microsoft SQL Server** (via `django-mssql-backend`)
+* **MongoDB** (via Djongo or MongoEngine)
+* **Redis** (used mainly for caching, not full DB)
+* **Cassandra, CouchDB, Neo4j** (via third-party packages)
+
+👉 So officially Django is **SQL-based**, but you can extend to NoSQL using packages.
+
+---
+
+📌 Would you like me to continue preparing **Q36–Q40** also in the same deep + easy way so you get a **full Django Interview Prep Set**?
 
 
 
