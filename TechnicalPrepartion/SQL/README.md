@@ -155,5 +155,112 @@ SQL **joins** combine rows from two or more tables based on a related column.
   👉 Example: All employees, even if they don’t belong to any department.
 
 ---
+Here’s the **complete definition** (in simple + technical English) of each:
 
-✅ Would you like me to continue writing **Q16–Q20 in the same full definition style** so you’ll have a **complete set of 20 SQL interview questions**?
+---
+
+### **16. What is the purpose of the GROUP BY clause?**
+
+👉 The **GROUP BY** clause in SQL is used to group rows that have the same values in one or more columns. It is mostly used with **aggregate functions** (like COUNT, SUM, AVG, MAX, MIN) to perform operations on each group of data.
+
+**Example:**
+
+```sql
+SELECT department, COUNT(*) 
+FROM employees 
+GROUP BY department;
+```
+
+This query counts employees in each department.
+
+---
+
+### **17. What are aggregate functions in SQL?**
+
+👉 **Aggregate functions** perform calculations on a set of values and return a single summarized result. They are mostly used with **GROUP BY**.
+
+**Common aggregate functions:**
+
+* `COUNT()` → Returns the number of rows.
+* `SUM()` → Returns the total sum of numeric values.
+* `AVG()` → Returns the average value.
+* `MAX()` → Returns the maximum value.
+* `MIN()` → Returns the minimum value.
+
+**Example:**
+
+```sql
+SELECT AVG(salary) FROM employees;
+```
+
+This returns the average salary of employees.
+
+---
+
+### **18. What is a subquery?**
+
+👉 A **subquery** is a query inside another query. It is nested in the `WHERE`, `FROM`, or `SELECT` clause. It helps in fetching results from one query that are used in another.
+
+**Example:**
+
+```sql
+SELECT name, salary 
+FROM employees 
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+
+This query selects employees whose salary is greater than the average salary.
+
+---
+
+### **19. What is the difference between the WHERE and HAVING clauses?**
+
+👉 Both **WHERE** and **HAVING** are used to filter data, but the difference is:
+
+* **WHERE** → Filters rows **before grouping** (works on individual rows).
+* **HAVING** → Filters groups **after GROUP BY** (works on aggregated results).
+
+**Example:**
+
+```sql
+-- Using WHERE
+SELECT * FROM employees WHERE salary > 50000;
+
+-- Using HAVING
+SELECT department, AVG(salary) 
+FROM employees 
+GROUP BY department 
+HAVING AVG(salary) > 50000;
+```
+
+Here, `WHERE` filters employees directly, while `HAVING` filters departments based on average salary.
+
+---
+
+### **20. What are indexes, and why are they used?**
+
+👉 An **index** in SQL is a data structure that improves the speed of retrieving rows from a database table. It works like the index of a book (helps to quickly find information instead of scanning the entire table).
+
+* **Purpose:** Makes queries faster, especially `SELECT` queries with `WHERE`, `ORDER BY`, and `JOIN`.
+* **Types:**
+
+  * **Primary Index** → Automatically created with Primary Key.
+  * **Unique Index** → Ensures no duplicate values.
+  * **Composite Index** → Index on multiple columns.
+  * **Clustered Index** → Data is physically sorted (one per table).
+  * **Non-clustered Index** → Creates a separate lookup table.
+
+**Example:**
+
+```sql
+CREATE INDEX idx_emp_name 
+ON employees(name);
+```
+
+This creates an index on the `name` column for faster searches.
+
+---
+
+✅ These are **complete technical definitions** with examples.
+
+Do you want me to put **all 20 questions with answers in one README.md table format** (like you asked earlier for Python)?
