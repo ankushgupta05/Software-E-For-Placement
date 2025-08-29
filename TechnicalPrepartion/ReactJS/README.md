@@ -495,5 +495,217 @@ export default Counter;
 The Virtual DOM in React makes updates **faster, smarter, and more efficient** by updating only what is necessary.
 
 ---
+Perfect 👍 Let’s do this in **question + proper answer format** (easy + interview-ready).
+
+---
+
+## ❓ Question:
+
+**What is the difference between a Functional Component and a Class Component in React?**
+
+---
+
+## ✅ Answer:
+
+### 📘 Definition:
+
+* **Functional Component:**
+  A simple JavaScript function that returns JSX. It uses **React Hooks** (like `useState`, `useEffect`) to manage state and lifecycle features.
+
+* **Class Component:**
+  A JavaScript class that extends `React.Component` and uses the `render()` method to return JSX. It manages state with `this.state` and lifecycle methods (`componentDidMount`, `componentDidUpdate`, etc.).
+
+---
+
+### ⚖️ Key Differences:
+
+| Feature         | Functional Component                               | Class Component                                         |
+| --------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| **Syntax**      | Simple JS function                                 | ES6 Class extending `React.Component`                   |
+| **State**       | Managed using **Hooks** (`useState`, `useReducer`) | Managed using `this.state`                              |
+| **Lifecycle**   | Done with Hooks (`useEffect`)                      | Done with lifecycle methods (`componentDidMount`, etc.) |
+| **Code**        | Short, clean, easier to read                       | More boilerplate, uses `this` keyword                   |
+| **Performance** | Faster (no extra overhead)                         | Slightly slower (more complex)                          |
+| **Popularity**  | Modern React prefers this                          | Older, less common now                                  |
+
+---
+
+### 🌟 Example:
+
+**Functional Component:**
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+**Class Component:**
+
+```jsx
+import React, { Component } from "react";
+
+class Counter extends Component {
+  state = { count: 0 };
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.count}</h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Increase
+        </button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+---
+
+✅ **In short:**
+
+* Functional components = **functions + Hooks** (modern, preferred).
+* Class components = **classes + lifecycle methods** (older, less used now).
+
+---
+
+Great questions 👌 I’ll write them in **interview-ready Q\&A format**, with **easy and proper definitions**.
+
+---
+
+## ❓ Question 1:
+
+**What is `useState` in React?**
+
+### ✅ Answer:
+
+`useState` is a **React Hook** that lets you add state to functional components.
+It returns **two values**: the current state and a function to update that state.
+
+**Example:**
+
+```jsx
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0); // count = state, setCount = updater
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+```
+
+---
+
+## ❓ Question 2:
+
+**What are Custom Hooks in React?**
+
+### ✅ Answer:
+
+Custom Hooks are **user-defined functions** in React that use built-in hooks (`useState`, `useEffect`, etc.) to **reuse logic across components**.
+They **start with "use"** (e.g., `useFetch`, `useAuth`).
+
+**Example:**
+
+```jsx
+import { useState, useEffect } from "react";
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(url).then(res => res.json()).then(data => setData(data));
+  }, [url]);
+
+  return data;
+}
+```
+
+👉 Now you can use `useFetch` in multiple components to reuse API fetching logic.
+
+---
+
+## ❓ Question 3:
+
+**What is JSX?**
+
+### ✅ Answer:
+
+JSX (**JavaScript XML**) is a **syntax extension** in React that allows writing **HTML-like code inside JavaScript**.
+It makes the code more readable and lets you combine HTML and JS logic in one place.
+
+**Example:**
+
+```jsx
+const element = <h1>Hello, React!</h1>;
+```
+
+👉 JSX is not HTML — it gets **compiled into JavaScript** (e.g., `React.createElement`).
+
+---
+
+## ❓ Question 4:
+
+**What is the difference between `props` and `state` in React?**
+
+### ✅ Answer:
+
+| Feature             | Props                                                                     | State                                                  |
+| ------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------ |
+| **Definition**      | Props (properties) are **inputs passed from parent to child** components. | State is **internal data** managed inside a component. |
+| **Mutable?**        | Immutable (cannot be changed by the child).                               | Mutable (can be updated with `setState` / `useState`). |
+| **Who updates it?** | Updated by the **parent component**.                                      | Updated by the **component itself**.                   |
+| **Use case**        | Pass data like `name`, `title`, `color`.                                  | Manage dynamic data like counter values, form inputs.  |
+
+**Example:**
+
+```jsx
+function Greeting(props) {  // props from parent
+  return <h1>Hello {props.name}</h1>;
+}
+
+function App() {
+  const [age, setAge] = useState(20); // state inside App
+  return (
+    <div>
+      <Greeting name="Ankush" /> {/* props */}
+      <p>Age: {age}</p>          {/* state */}
+      <button onClick={() => setAge(age + 1)}>Increase Age</button>
+    </div>
+  );
+}
+```
+
+---
+
+✅ **In short:**
+
+* `useState` → Adds state to functional components.
+* Custom Hooks → Reusable logic using hooks.
+* JSX → HTML-like syntax inside JS.
+* Props vs State → Props = external & read-only, State = internal & changeable.
+
+---
+
+Do you want me to also prepare these in a **super-short version (1–2 lines each)** for last-minute interview revision?
 
 
