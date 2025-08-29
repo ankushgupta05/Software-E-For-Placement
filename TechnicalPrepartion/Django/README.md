@@ -1096,7 +1096,159 @@ By default, Django officially supports **Relational Databases (RDBMS)**:
 
 ---
 
-📌 Would you like me to continue preparing **Q36–Q40** also in the same deep + easy way so you get a **full Django Interview Prep Set**?
+Great question 👍 Let’s make this **super useful for Django interviews** 🚀.
+I’ll give you **CRUD operations (Create, Read, Update, Delete)** + **important query commands** with examples.
 
+---
 
+# ✅ Django ORM Queries (CRUD & Important Commands)
+
+### **Q 36. How would you query all the items in the database table?**
+
+```python
+# Import your model
+from myapp.models import Student  
+
+# Fetch all records
+students = Student.objects.all()
+```
+
+---
+
+### **Q 37. How to query one item from the database table?**
+
+```python
+# Fetch a single item by ID (Primary Key)
+student = Student.objects.get(id=1)
+
+# Fetch the first object
+student = Student.objects.first()
+
+# Fetch the last object
+student = Student.objects.last()
+
+# Fetch with a condition
+student = Student.objects.get(name="Ankush")
+```
+
+---
+
+## 🔹 CRUD OPERATIONS
+
+### 1. **Create (Insert Data)**
+
+```python
+# Method 1: Create and save
+student = Student(name="Ankush", age=22, grade="A")
+student.save()
+
+# Method 2: Directly create
+Student.objects.create(name="Rahul", age=20, grade="B")
+
+# Method 3: Bulk insert
+Student.objects.bulk_create([
+    Student(name="Neha", age=21, grade="A"),
+    Student(name="Amit", age=23, grade="C"),
+])
+```
+
+---
+
+### 2. **Read (Retrieve Data)**
+
+```python
+# Fetch all records
+students = Student.objects.all()
+
+# Filtering
+students = Student.objects.filter(grade="A")
+
+# Exclude
+students = Student.objects.exclude(age__lt=20)
+
+# Order By
+students = Student.objects.order_by("name")       # Ascending
+students = Student.objects.order_by("-age")       # Descending
+
+# Distinct
+grades = Student.objects.values_list("grade", flat=True).distinct()
+
+# Get specific fields
+names = Student.objects.values("name", "age")
+
+# Limit records
+top_5 = Student.objects.all()[:5]
+
+# Aggregation
+from django.db.models import Count, Max, Min, Avg, Sum
+Student.objects.aggregate(Avg("age"), Max("age"))
+```
+
+---
+
+### 3. **Update (Modify Data)**
+
+```python
+# Update single record
+student = Student.objects.get(id=1)
+student.age = 25
+student.save()
+
+# Update multiple records
+Student.objects.filter(grade="B").update(grade="A")
+```
+
+---
+
+### 4. **Delete (Remove Data)**
+
+```python
+# Delete single record
+student = Student.objects.get(id=1)
+student.delete()
+
+# Delete multiple records
+Student.objects.filter(grade="C").delete()
+
+# Delete all records
+Student.objects.all().delete()
+```
+
+---
+
+## 🔹 Other **Important Django ORM Commands**
+
+```python
+# Check if record exists
+Student.objects.filter(name="Ankush").exists()
+
+# Count records
+Student.objects.count()
+
+# Get latest / earliest (requires DateTimeField)
+Student.objects.latest("created_at")
+Student.objects.earliest("created_at")
+
+# Using Q objects (for complex queries)
+from django.db.models import Q
+students = Student.objects.filter(Q(age__gte=20) | Q(grade="A"))
+
+# Using F expressions (field-to-field comparison)
+from django.db.models import F
+students = Student.objects.filter(age__gt=F("marks"))
+```
+
+---
+
+✅ **Summary for Interview**:
+
+* `objects.create()` → Insert
+* `objects.all(), objects.filter(), objects.get()` → Read
+* `.update(), save()` → Update
+* `.delete()` → Delete
+* Extra: `aggregate(), annotate(), Q, F` → Advanced queries
+
+---
+
+👉 Do you want me to also make a **README.md styled interview sheet** (like you asked earlier for grammar & networking) with all CRUD + queries in a neat **table format** for quick revision?
 
