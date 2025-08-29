@@ -260,7 +260,87 @@ ON employees(name);
 This creates an index on the `name` column for faster searches.
 
 ---
+Here’s the **complete definition** for your questions (21–25):
 
-✅ These are **complete technical definitions** with examples.
+---
 
-Do you want me to put **all 20 questions with answers in one README.md table format** (like you asked earlier for Python)?
+### **21. What is the difference between DELETE and TRUNCATE commands?**
+
+* **DELETE**:
+
+  * Removes specific rows from a table using a condition (`WHERE`).
+  * Logs each row deletion (slower for large data).
+  * Can be rolled back (transaction safe).
+  * Does **not reset** identity (auto-increment) values.
+
+* **TRUNCATE**:
+
+  * Removes **all rows** from a table (no condition).
+  * Much faster (deallocates data pages).
+  * Cannot be rolled back in some databases.
+  * **Resets identity** (auto-increment) values.
+
+✅ **Conclusion**: Use `DELETE` for selective deletion and `TRUNCATE` for clearing a table fully.
+
+---
+
+### **22. What is the purpose of the SQL ORDER BY clause?**
+
+* `ORDER BY` is used to **sort query results** in ascending (`ASC`) or descending (`DESC`) order based on one or more columns.
+* Example:
+
+  ```sql
+  SELECT name, salary 
+  FROM employees 
+  ORDER BY salary DESC;
+  ```
+
+  → Returns employees sorted by highest salary first.
+
+---
+
+---
+
+### **25. What are the types of constraints in SQL?**
+
+Constraints are rules applied to table columns to maintain **data integrity**.
+
+Types of Constraints:
+
+1. **NOT NULL** – Ensures a column cannot have NULL values.
+2. **UNIQUE** – Ensures all values in a column are unique.
+3. **PRIMARY KEY** – Uniquely identifies each row (NOT NULL + UNIQUE).
+4. **FOREIGN KEY** – Ensures referential integrity between tables.
+5. **CHECK** – Ensures values satisfy a condition (e.g., salary > 0).
+6. **DEFAULT** – Assigns a default value if no value is provided.
+
+---
+
+ठीक है 🙂 मैं आपको **Q.23: What are the differences between SQL and NoSQL databases?** बहुत ही **simple और complete** तरीके से समझाता हूँ, ताकि आपको साफ़ समझ आ जाए।
+
+---
+
+## ✅ SQL vs NoSQL Databases
+
+### 🔹 SQL Databases
+
+* **Full Form** → Structured Query Language
+* **Data Storage** → Tables (rows & columns)
+* **Schema** → Fixed schema (पहले से तय करना पड़ता है कि table में कौन-कौन से columns होंगे)
+* **Scalability** → Vertical (server की power बढ़ानी पड़ती है जैसे CPU, RAM)
+* **Examples** → MySQL, PostgreSQL, Oracle, SQL Server
+* **Best Use Case** → जब data structured हो (जैसे बैंकिंग, student records, e-commerce orders)।
+
+---
+
+### 🔹 NoSQL Databases
+
+* **Full Form** → Not Only SQL
+* **Data Storage** → Different formats (JSON, Key-Value, Document, Graph, Column-based)
+* **Schema** → Dynamic schema (data flexible होता है, पहले से तय करने की जरूरत नहीं)
+* **Scalability** → Horizontal (ज़्यादा servers जोड़कर scale कर सकते हैं)
+* **Examples** → MongoDB, Cassandra, Redis, CouchDB
+* **Best Use Case** → जब data unstructured या semi-structured हो (जैसे social media data, IoT, real-time analytics)।
+
+---
+
