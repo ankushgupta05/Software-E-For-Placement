@@ -327,3 +327,146 @@ Now `blog/` app is created.
 
 ---
 
+Perfect 👍 Let’s go step by step with **very easy and deep explanations** for each question.
+
+---
+
+### ✅ Q 12. Give a brief about the Django admin interface.
+
+👉 **Definition:**
+The Django **admin interface** is a built-in web-based dashboard that Django provides for managing your database and models. It is automatically generated from your project’s models.
+
+👉 **Explanation:**
+
+* Once you create models in Django and register them inside `admin.py`, Django automatically shows them in the admin panel.
+* It allows you to **add, update, delete, and search records** without writing SQL queries manually.
+* You can also customize how models look and behave in the admin panel.
+
+👉 **Steps to use:**
+
+1. Create a superuser:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+2. Run the server:
+
+   ```bash
+   python manage.py runserver
+   ```
+3. Visit:
+
+   ```
+   http://127.0.0.1:8000/admin/
+   ```
+
+   → Login with the superuser credentials.
+
+---
+
+### ✅ Q 13. What are Django URLs?
+
+👉 **Definition:**
+A **URL (Uniform Resource Locator)** in Django defines the path (address) to a specific webpage or functionality.
+
+👉 **Explanation:**
+
+* Django uses a file called `urls.py` to **map URLs to views**.
+* It decides what function (view) should run when a particular URL is requested.
+
+👉 **Example:**
+
+```python
+# project/urls.py
+from django.contrib import admin
+from django.urls import path
+from myapp import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('hello/', views.say_hello),  # when user visits /hello → say_hello() runs
+]
+```
+
+---
+
+### ✅ Q 14. What are the views of Django?
+
+👉 **Definition:**
+A **view** in Django is a Python function or class that takes a **web request** and returns a **web response** (HTML, JSON, etc.).
+
+👉 **Explanation:**
+
+* Views contain the **logic** of what should happen when someone visits a certain URL.
+* They can fetch data from the database, process it, and send it to a template (HTML).
+
+👉 **Example:**
+
+```python
+# myapp/views.py
+from django.http import HttpResponse
+
+def say_hello(request):
+    return HttpResponse("Hello, Django World!")
+```
+
+---
+
+### ✅ Q 15. What are the models in Django?
+
+👉 **Definition:**
+A **model** in Django is a **Python class** that defines the structure of your database table.
+
+👉 **Explanation:**
+
+* Each model maps to a **table** in the database.
+* Each attribute inside the model is a **field** in the table.
+* Django automatically creates SQL queries behind the scenes for you.
+
+👉 **Example:**
+
+```python
+# myapp/models.py
+from django.db import models
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    email = models.EmailField()
+```
+
+➡️ This creates a database table like:
+
+| id | name   | age | email                                     |
+| -- | ------ | --- | ----------------------------------------- |
+| 1  | Ankush | 21  | [ankush@test.com](mailto:ankush@test.com) |
+
+---
+
+### ✅ Q 16. What do the following commands do?
+
+1️⃣ **`python manage.py makemigrations`**
+👉 Creates migration files (blueprints of database changes).
+
+* It looks at your models and prepares instructions on how to update the database.
+* But it does **not** apply them yet.
+
+2️⃣ **`python manage.py migrate`**
+👉 Actually applies the migration files to the database.
+
+* It creates or updates database tables according to your models.
+
+👉 **Example Workflow:**
+
+```bash
+python manage.py makemigrations   # create migration file
+python manage.py migrate          # apply it to DB
+```
+
+➡️ **Simple Example:**
+
+* Add a new model `Student`.
+* Run `makemigrations` → Django creates migration file.
+* Run `migrate` → Table `Student` is created in DB.
+
+---
