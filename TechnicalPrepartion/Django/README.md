@@ -1252,3 +1252,101 @@ students = Student.objects.filter(age__gt=F("marks"))
 
 👉 Do you want me to also make a **README.md styled interview sheet** (like you asked earlier for grammar & networking) with all CRUD + queries in a neat **table format** for quick revision?
 
+
+
+ठीक है Ankush 😊, अब मैं इसे बहुत ही आसान भाषा में और example के साथ समझाता हूँ।
+Django में Model Inheritance का मतलब है – एक model (class) से दूसरा model बनाना, ताकि बार-बार कोड न लिखना पड़े।
+
+Django inheritance की 3 स्टाइल्स होती हैं 👇
+
+
+---
+
+1️⃣ Abstract Base Classes
+
+👉 जब हमें common fields (जो हर model में चाहिए) बार-बार लिखने से बचना हो।
+👉 इसमें parent class की table database में नहीं बनती।
+
+📌 Example:
+
+from django.db import models
+
+class CommonInfo(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)   # हर model में चाहिए
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True   # Important! इससे table नहीं बनेगी
+
+class Student(CommonInfo):
+    name = models.CharField(max_length=100)
+
+class Teacher(CommonInfo):
+    subject = models.CharField(max_length=100)
+
+📝 यहाँ Student और Teacher की अपनी-अपनी tables बनेंगी,
+लेकिन CommonInfo की table नहीं बनेगी, उसके fields automatically दोनों में add हो जाएंगे।
+
+
+---
+
+2️⃣ Multi-Table Inheritance
+
+👉 हर class की अपनी table बनती है।
+👉 Child table automatically parent से OneToOneField द्वारा जुड़ती है।
+
+📌 Example:
+
+class Person(models.Model):
+    name = models.CharField(max_length=100)
+
+class Student(Person):   # Inheriting
+    roll_no = models.IntegerField()
+
+📝 अब database में दो tables बनेंगी:
+
+Person → सिर्फ name store करेगी
+
+Student → roll_no store करेगी और साथ ही person_ptr_id नाम का hidden OneToOneField रहेगा जो Person table से link होगा।
+
+
+✅ मतलब अगर तुम Student object बनाओगे, तो वो data दोनों tables में save होगा।
+
+
+---
+
+3️⃣ Proxy Models
+
+👉 इसमें कोई नई table नहीं बनती।
+👉 सिर्फ model का Python behavior बदलता है (extra methods, अलग ordering, आदि)।
+
+📌 Example:
+
+class StudentProxy(Student):
+    class Meta:
+        proxy = True   # Important! कोई नई table नहीं बनेगी
+
+    def welcome(self):
+        return f"Welcome {self.name}"
+
+📝 अब हम उसी Student table का इस्तेमाल कर रहे हैं,
+लेकिन Python side पर extra method welcome() add हो गया।
+
+
+---
+
+🎯 Summary (एक लाइन में याद रखने के लिए)
+
+Abstract Base Class → Parent table नहीं बनेगी (fields reuse के लिए)।
+
+Multi-Table Inheritance → हर class की अलग table बनेगी।
+
+Proxy Model → नई table नहीं बनेगी, सिर्फ behavior बदलेगा।
+
+
+
+---
+
+👉 अगर तुम चाहो तो मैं इसका real-world example (जैसे स्कूल या ई-कॉमर्स system में) भी समझा सकता हूँ, जिससे और clear हो जाएगा।
+क्या मैं तुम्हें वो भी समझाऊँ?
+
