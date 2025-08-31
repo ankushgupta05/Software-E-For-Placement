@@ -350,6 +350,50 @@ So, when you use FastAPI, **Starlette is silently doing the heavy lifting under 
 
 Do you want me to also add a **small diagram (FastAPI → Starlette → ASGI → Server)** to make the architecture super clear?
 
+Perfect 👍 Let’s write it in **Q\&A style** so it’s crystal clear:
+
+---
+
+## ✅ Q1: What is WSGI?
+
+**Answer:**
+
+* WSGI = **Web Server Gateway Interface**.
+* It is the **old standard** for connecting Python web apps with servers.
+* Works only with **synchronous requests** (one at a time).
+* Best for **simple web apps or APIs** (like Django, Flask in classic mode).
+
+---
+
+## ✅ Q2: What is ASGI?
+
+**Answer:**
+
+* ASGI = **Asynchronous Server Gateway Interface**.
+* It is the **new standard** that supports both:
+
+  * **Synchronous code** (normal requests).
+  * **Asynchronous code** (real-time apps, WebSockets, chat, live updates).
+* Best for **modern apps** where speed and real-time communication are needed (like FastAPI, Django Channels).
+
+---
+
+## ✅ Q3: How is ASGI different from WSGI?
+
+**Answer:**
+
+* **WSGI** → Only supports synchronous (blocking) requests.
+* **ASGI** → Supports both synchronous + asynchronous requests (non-blocking, faster).
+* **ASGI** enables features like **WebSockets, chat apps, live notifications**, which WSGI cannot handle.
+
+👉 **In one line:**
+
+* WSGI = sync only 🚶
+* ASGI = sync + async 🚀
+
+---
+
+Do you want me to also add a **small diagram (queue vs multi-lane highway)** for WSGI vs ASGI so you can remember it visually?
 
 
 
