@@ -426,4 +426,105 @@ The **Request-Response cycle** is how FastAPI handles a request step by step:
 👉 **In short:** Request → Route match → Validate → Process → Response.
 
 ---
+Alright 👍 Let’s keep everything **easy and clear**:
+
+---
+
+## ✅ Q1: What are Path Parameters and Query Parameters?
+
+* **Path Parameters**
+
+  * Part of the **URL path**.
+  * Used to identify a **specific resource**.
+  * Example:
+
+    ```python
+    @app.get("/items/{item_id}")
+    def get_item(item_id: int):
+        return {"item_id": item_id}
+    ```
+
+    * Request → `/items/5` → here **5** is a path parameter.
+
+* **Query Parameters**
+
+  * Added after a **`?` in the URL**.
+  * Used for **filters, search, pagination, optional values**.
+  * Example:
+
+    ```python
+    @app.get("/items/")
+    def get_items(skip: int = 0, limit: int = 10):
+        return {"skip": skip, "limit": limit}
+    ```
+
+    * Request → `/items/?skip=5&limit=20` → here **skip=5** and **limit=20** are query parameters.
+
+👉 **Remember:**
+
+* Path parameter = **which resource**.
+* Query parameter = **extra details about the request**.
+
+---
+
+## ✅ Q2: What is the difference between Synchronous and Asynchronous endpoints in FastAPI?
+
+* **Synchronous Endpoint (`def`)**
+
+  * Runs **one task at a time**.
+  * Blocks other requests until finished.
+  * Good for simple operations like database queries or basic logic.
+  * Example:
+
+    ```python
+    @app.get("/sync")
+    def sync_func():
+        return {"msg": "This is synchronous"}
+    ```
+
+* **Asynchronous Endpoint (`async def`)**
+
+  * Can run **multiple tasks at once** (non-blocking).
+  * Useful for I/O-heavy tasks (API calls, WebSockets, long operations).
+  * Faster for real-time and concurrent applications.
+  * Example:
+
+    ```python
+    @app.get("/async")
+    async def async_func():
+        return {"msg": "This is asynchronous"}
+    ```
+
+👉 **In short:**
+
+* `def` = sync (one by one 🚶).
+* `async def` = async (many together 🚀).
+
+---
+
+## ✅ Q3: What is the use of Uvicorn in FastAPI?
+
+* **Uvicorn** is the **server** that runs FastAPI apps.
+* It is a **lightweight, high-performance ASGI server**.
+* Role of Uvicorn:
+
+  1. Receives HTTP requests from clients.
+  2. Passes them to the FastAPI app.
+  3. Sends back the responses.
+
+👉 Without Uvicorn (or another ASGI server), your FastAPI app cannot run.
+
+**Command to run a FastAPI app with Uvicorn:**
+
+```bash
+uvicorn main:app --reload
+```
+
+* `main` = filename (`main.py`)
+* `app` = FastAPI object inside the file
+* `--reload` = auto-restart on code changes (useful for development)
+
+---
+
+Do you want me to also make a **summary table** (Path vs Query Params, Sync vs Async, Uvicorn role) for quick revision?
 
