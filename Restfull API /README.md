@@ -525,6 +525,103 @@ uvicorn main:app --reload
 * `--reload` = auto-restart on code changes (useful for development)
 
 ---
+Great questions 👍 Let’s keep both answers **simple and clear**:
 
-Do you want me to also make a **summary table** (Path vs Query Params, Sync vs Async, Uvicorn role) for quick revision?
+---
+
+## ✅ Q1: How does FastAPI handle data validation?
+
+* FastAPI uses **Pydantic models** for validation.
+* When a request comes:
+
+  1. FastAPI reads the incoming data (path params, query params, body).
+  2. Pydantic checks if the data is in the **correct type/format**.
+  3. If data is valid → passes it to your function.
+  4. If data is invalid → returns an **automatic error response** with details.
+
+**Example:**
+
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class User(BaseModel):
+    name: str
+    age: int
+
+@app.post("/users/")
+def create_user(user: User):
+    return user
+```
+
+* Request → `{"name": "Ankush", "age": "25"}`
+
+  * `"25"` (string) gets auto-converted to `25` (int).
+* Request → `{"name": "Ankush", "age": "abc"}`
+
+  * ❌ Error → `"age must be an integer"`.
+
+👉 **In short:** FastAPI automatically **validates and converts data** using Pydantic.
+
+---
+
+## ✅ Q2: What is Dependency Injection in FastAPI?
+
+* **Dependency Injection (DI)** = A way to **reuse common logic** (like authentication, database connection, etc.) across multiple endpoints.
+* Instead of writing the same code in every function, you define it once as a **dependency** and FastAPI **injects it automatically**.
+
+**Example:**
+
+```python
+from fastapi import Depends, FastAPI
+
+app = FastAPI()
+
+def get_token(token: str):
+    return token
+
+@app.get("/items/")
+def read_items(token: str = Depends(get_token)):
+    return {"token": token}
+```
+
+* Here `get_token` is a **dependency**.
+* FastAPI **injects** it into `read_items` automatically.
+
+👉 **In short:** Dependency Injection = **define once, reuse everywhere** (helps write clean and DRY code).
+
+---
+
+Perfect 👍 Let’s break these **HTTP status codes** into easy meanings with examples:
+
+---
+
+## ✅ Common HTTP Status Codes in APIs
+
+| Code                          | Meaning                                           | When it is used (Example)                                       |
+| ----------------------------- | ------------------------------------------------- | --------------------------------------------------------------- |
+| **200 OK**                    | Request was **successful**                        | When you fetch data correctly → `GET /items/5` returns the item |
+| **201 Created**               | New resource was **successfully created**         | After creating a new user → `POST /users`                       |
+| **400 Bad Request**           | Client sent **invalid data**                      | Missing fields, wrong JSON format, invalid value                |
+| **401 Unauthorized**          | Authentication required (no or wrong credentials) | Accessing a protected API without login/token                   |
+| **403 Forbidden**             | You are authenticated, but **not allowed**        | Logged in as user but trying to access admin-only page          |
+| **404 Not Found**             | Resource does not exist                           | Requesting `/items/999` when that item doesn’t exist            |
+| **500 Internal Server Error** | Server crashed or bug in code                     | Database down, Python error, unhandled exception                |
+
+---
+
+👉 **Quick way to remember:**
+
+* **200** → Success ✅
+* **201** → Created 🆕
+* **400** → Wrong request ❌
+* **401** → Not logged in 🔑
+* **403** → Logged in but not allowed 🚫
+* **404** → Not found 🔍
+* **500** → Server broken 💥
+
+---
+
 
